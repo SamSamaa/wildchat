@@ -9,7 +9,8 @@
     "semantic-ui": "^2.4.2",
     "semantic-ui-react": "^0.86.0",
     "socket.io": "^2.2.0",
-    "socket.io-client": "^2.2.0"
+    "socket.io-client": "^2.2.0",
+    "vtop": "^0.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -25,5 +26,12 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-nodemon": "^0.5.4",
+    "grunt-run": "^0.8.1",
+    "load-grunt-tasks": "^4.0.0"
+  }
 }
