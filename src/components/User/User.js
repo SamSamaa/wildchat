@@ -2,7 +2,7 @@ import React from 'react';
 
 function User() {
   return (
-    <strong>Pseudo</strong>
+    <strong>Michel</strong>
   )
 }
 

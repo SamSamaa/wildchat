@@ -2,7 +2,7 @@ import React from 'react';
 
 function Msg() {
   return (
-    <div>This is a message!</div>
+    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</span>
   )
 }
 

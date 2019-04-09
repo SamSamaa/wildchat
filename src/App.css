@@ -1,33 +1,44 @@
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-columns: 25vw 25vw 25vw 25vw;
+  grid-template-rows: 10vh 40vh 40vh 10vh;
+  grid-template-areas:
+    "feed feed feed logo"
+    "feed feed feed usersbox"
+    "feed feed feed usersbox"
+    "input input input parameters";
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.Feed {
+  grid-area: feed;
+  overflow-x: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.InputMsg {
+  grid-area: input;
+  align-self: center;
+}
+.Logo {
+  grid-area: logo;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.Usersbox {
+  background-color: #F8F8F8;
+  grid-area: usersbox;
+  display: grid;
+  grid-template-rows: 10% 5% 85%;
+  grid-template-areas:
+    "myProfile"
+    "counter"
+    "usersList";
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Parameters {
+  grid-area: parameters;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

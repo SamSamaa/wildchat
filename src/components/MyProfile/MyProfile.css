@@ -1,0 +1,6 @@
+.MyProfile {
+  grid-area: myProfile;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
