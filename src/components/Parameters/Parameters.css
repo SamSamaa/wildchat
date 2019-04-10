@@ -1,0 +1,9 @@
+.Parameters {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Parameters i {
+  color: var(--bg-color);
+}

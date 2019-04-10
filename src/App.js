@@ -1,14 +1,35 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import Feed from './components/Feed/Feed';
+import InputMsg from './components/InputMsg/InputMsg';
+import Logo from './components/Logo/Logo';
+import UsersBox from './components/UsersBox/UsersBox';
+import Parameters from './components/Parameters/Parameters';
+import { Icon } from 'semantic-ui-react';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
+function App() {
 
+  const [active, toggleActive] = useState(false);
+
+  const toggleUsers = () => toggleActive(!active);
+
+
+  return (
+    <div className='App'>
+      <div className='chat'>
+        <Feed />
+        <InputMsg />
       </div>
-    );
-  }
+      <div className={'infos'+(active ? ' active': ' inactive')} >
+        <button className='toggle' onClick={toggleUsers}>
+          <Icon name={ active ? 'chevron circle right' : 'chevron circle left'}/>
+        </button>
+        <Logo />
+        <UsersBox />
+        <Parameters />
+      </div>
+    </div>
+  );
 }
 
 export default App;

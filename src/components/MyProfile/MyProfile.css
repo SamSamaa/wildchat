@@ -1,0 +1,8 @@
+.MyProfile {
+  grid-area: 'myProfile';
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

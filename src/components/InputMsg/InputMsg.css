@@ -1,0 +1,5 @@
+.InputMsg {
+  align-self: center;
+  padding: 10px !important;
+  background-color: var(--bg-color);
+}
