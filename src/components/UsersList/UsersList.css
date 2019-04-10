@@ -1,6 +1,0 @@
-.UsersList {
-  padding-left: 20px !important;
-  grid-area: usersList;
-  overflow-x: hidden;
-  overflow-y: auto;
-}

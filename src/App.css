@@ -1,44 +1,113 @@
 .App {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: hidden;
+  background-color: #efedf4;
+  /* overflow: hidden; */
+}
+
+::-webkit-scrollbar { 
+  display: none; 
+}
+
+.chat {
+  z-index: 1;
+  position: absolute;
+  top: 0; left: 0;
+  height: 100vh;
+  width: 100vw;
   display: grid;
-  grid-template-columns: 25vw 25vw 25vw 25vw;
-  grid-template-rows: 10vh 40vh 40vh 10vh;
-  grid-template-areas:
-    "feed feed feed logo"
-    "feed feed feed usersbox"
-    "feed feed feed usersbox"
-    "input input input parameters";
+  grid-template-rows: 90% 10%;
+}
+
+.chat:after {
+  content: '';
+  background-color: black;
+  opacity: 0;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+}
+
+.infos {
+  z-index: 2;
+  background-color: #6435C9;
+  color: white;
+  position: absolute;
+  top: 0; left: 0;
+  margin-left: 100vw;
+  height: 100vh;
+  width: 70vw;
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+  transition: all .5s ease-in-out;
 }
 
 .Feed {
-  grid-area: feed;
   overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0 !important;
+  background-color: #efedf4;
 }
 
 .InputMsg {
-  grid-area: input;
   align-self: center;
+  padding: 10px !important;
+  background-color: #efedf4;
 }
+
 .Logo {
-  grid-area: logo;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .Usersbox {
-  background-color: #F8F8F8;
-  grid-area: usersbox;
+  z-index: 3;
   display: grid;
-  grid-template-rows: 10% 5% 85%;
+  grid-template-rows: 20% 10% 70%;
   grid-template-areas:
     "myProfile"
     "counter"
     "usersList";
+    justify-items: stretch;
+    text-align: center;
 }
 
 .Parameters {
-  grid-area: parameters;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
+.Parameters i {
+  color: #efedf4;
+}
+
+.toggle {
+  z-index: 5;
+  background-color: transparent;
+  position: absolute;
+  left: -60px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  outline:none;
+}
+
+.toggle i {
+  margin-left: -3px !important;
+  margin-top: -4px !important;
+  font-size: 3rem !important;
+}
+
+.MyProfile {
+  grid-area: 'myProfile';
+  background-color: #efedf4;
+  color: #6435c9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

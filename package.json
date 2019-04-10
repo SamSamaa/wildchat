@@ -9,8 +9,7 @@
     "semantic-ui": "^2.4.2",
     "semantic-ui-react": "^0.86.0",
     "socket.io": "^2.2.0",
-    "socket.io-client": "^2.2.0",
-    "vtop": "^0.6.1"
+    "socket.io-client": "^2.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

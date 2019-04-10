@@ -5,7 +5,7 @@ import './UsersList.css';
 
 function UsersList() {
   return (
-    <List bulleted className='UsersList'>
+    <List className='UsersList'>
       <List.Item><User /></List.Item>
       <List.Item><User /></List.Item>
       <List.Item><User /></List.Item>
