@@ -2,8 +2,11 @@
   position: relative;
   height: 100vh;
   width: 100vw;
-  background-color: #efedf4;
   overflow: hidden;
+  --main-color: #6435c9;
+  --bg-color: #efedf4;
+  --text-color: #ffffff;
+  background-color: var(--bg-color);
 }
 
 ::-webkit-scrollbar { 
@@ -22,8 +25,8 @@
 
 .infos {
   z-index: 2;
-  background-color: #6435C9;
-  color: white;
+  background-color: var(--main-color);
+  color: var(--text-color);
   position: absolute;
   top: 0; left: 0;
   height: 100vh;
@@ -42,47 +45,6 @@
   margin-left: 100vw;
 }
 
-.Feed {
-  overflow-x: hidden;
-  overflow-y: auto;
-  margin: 0 !important;
-  background-color: #efedf4;
-}
-
-.InputMsg {
-  align-self: center;
-  padding: 10px !important;
-  background-color: #efedf4;
-}
-
-.Logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.Usersbox {
-  z-index: 3;
-  display: grid;
-  grid-template-rows: 20% 10% 70%;
-  grid-template-areas:
-    "myProfile"
-    "counter"
-    "usersList";
-    justify-items: stretch;
-    text-align: center;
-}
-
-.Parameters {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.Parameters i {
-  color: #efedf4;
-}
-
 .toggle {
   z-index: 5;
   background-color: transparent;
@@ -95,18 +57,10 @@
 }
 
 .toggle i {
+  color: var(--main-color);
   margin-left: -3px !important;
   margin-top: -4px !important;
   font-size: 3rem !important;
-}
-
-.MyProfile {
-  grid-area: 'myProfile';
-  background-color: #efedf4;
-  color: #6435c9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 @media screen and (min-width: 600px){
@@ -116,7 +70,7 @@
 
   .infos {
     margin-left: 70vw;
-    border: 10px solid #6435c9;
+    border: 10px solid var(--main-color);
   }
 
   .active{

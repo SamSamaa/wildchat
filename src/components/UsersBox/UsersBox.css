@@ -1,0 +1,12 @@
+.UsersBox {
+  z-index: 3;
+  display: grid;
+  grid-template-rows: 20% 10% 70%;
+  grid-template-areas:
+    "myProfile"
+    "counter"
+    "usersList";
+  justify-items: stretch;
+  text-align: center;
+  overflow-y: scroll;
+}

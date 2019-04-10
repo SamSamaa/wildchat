@@ -1,0 +1,6 @@
+.Feed {
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0 !important;
+  background-color: var(--bg-color);
+}

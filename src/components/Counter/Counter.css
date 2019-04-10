@@ -1,5 +1,5 @@
 .Counter {
-  grid-area: counter;
+  grid-area: 'counter';
   display: flex;
   justify-content: center;
   align-items: center;
