@@ -6,7 +6,7 @@ import './UserMsg.css';
 
 function UserMsg() {
   return (
-    <Message className='msg'><p className='msg'><User /> <Msg /></p></Message>
+    <Message compact className='msg'><p className='msg'><User /> <Msg /></p></Message>
   )
 }
 

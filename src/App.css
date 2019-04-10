@@ -21,27 +21,26 @@
   grid-template-rows: 90% 10%;
 }
 
-.chat:after {
-  content: '';
-  background-color: black;
-  opacity: 0;
-  position: absolute;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-}
-
 .infos {
   z-index: 2;
   background-color: #6435C9;
   color: white;
   position: absolute;
   top: 0; left: 0;
-  margin-left: 100vw;
   height: 100vh;
-  width: 70vw;
   display: grid;
   grid-template-rows: 10% 80% 10%;
   transition: all .5s ease-in-out;
+}
+
+.active{
+  width: 70vw;
+  margin-left: 30vw;
+}
+
+.inactive{
+  width: 70vw;
+  margin-left: 100vw;
 }
 
 .Feed {
@@ -111,3 +110,27 @@
   justify-content: center;
 }
 
+@media screen and (min-width: 600px){
+  .chat {
+    width: 70vw;
+  }
+
+  .infos {
+    margin-left: 70vw;
+    border: 10px solid #6435c9;
+  }
+
+  .active{
+    width: 30vw;
+    margin-left: 70vw;
+  }
+  
+  .inactive{
+    width: 30vw;
+    margin-left: 70vw;
+  }
+
+  .toggle{
+    display:none;
+  }
+}

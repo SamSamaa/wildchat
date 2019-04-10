@@ -20,7 +20,7 @@ function App() {
         <Feed />
         <InputMsg />
       </div>
-      <div className='infos' style={active ? { marginLeft: '30vw' } : { marginLeft: '100vw' }}>
+      <div className={'infos'+(active ? ' active': ' inactive')} >
         <button className='toggle' onClick={toggleUsers}>
           <Icon name={ active ? 'chevron circle right' : 'chevron circle left'} color='violet'/>
         </button>
