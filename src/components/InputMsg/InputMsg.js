@@ -1,17 +1,3 @@
-// import React from 'react';
-// import { Form } from 'semantic-ui-react'
-// import './InputMsg.css';
-
-// function InputMsg() {
-// return (
-//   <Form className='InputMsg'>
-//     <Form.Input action='Send' placeholder='Type your message...' />
-//   </Form>
-// )
-// }
-
-// export default InputMsg;
-
 import React, { useState, useEffect } from "react";
 import { Client } from "../../Client";
 import { Form } from 'semantic-ui-react';
@@ -22,8 +8,11 @@ const InputMsg = () => {
 
   const [message, setMessage] = useState('');
 
+  const [name, setName] = useState('');
+  Client.receivedNewConnection(data => setName(data.id))
+
   const sendMessage = () => {
-    Client.sendMessageEmit(message);
+    Client.sendMessageEmit(message, name);
     setMessage('');
   }
 

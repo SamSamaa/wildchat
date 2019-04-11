@@ -20,10 +20,6 @@ function Feed() {
     setMessages([...messages, data]);
   }
 
-  const [name, setName] = useState('');
-
-  Client.receivedNewConnection(data => setName(data.id));
-
   useEffect(() => {
     document.getElementById('bottom').scrollIntoView({ behavior: 'smooth' });
   });
@@ -32,7 +28,7 @@ function Feed() {
     <List className="Feed">
       {messages.map((message, index) => {
         return (
-          <List.Item key={index}><UserMsg name={name} message={message.message}/></List.Item>
+          <List.Item key={index}><UserMsg name={message.name} message={message.message}/></List.Item>
         )
       })}
 

@@ -12,9 +12,10 @@ export const Client = {
   receiveMessageOff(handleMessage) {
     socket.off('RECEIVE_MESSAGE', handleMessage);
   },
-  sendMessageEmit(message) {
+  sendMessageEmit(message, name) {
     socket.emit('SEND_MESSAGE', {
-      'message': message
+      message: message,
+      name: name
     })
   }
 }
