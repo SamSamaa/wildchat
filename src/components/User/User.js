@@ -1,8 +1,8 @@
 import React from 'react';
 
-function User() {
+function User(props) {
   return (
-    <strong>Michel</strong>
+    <strong>{props.name}</strong>
   )
 }
 
