@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Msg() {
+function Msg(props) {
   return (
-    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</span>
+    <span>{props.message}</span>
   )
 }
 

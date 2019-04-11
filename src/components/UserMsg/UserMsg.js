@@ -4,9 +4,10 @@ import Msg from '../Msg/Msg';
 import { Message } from 'semantic-ui-react';
 import './UserMsg.css';
 
-function UserMsg() {
+
+function UserMsg(props) {
   return (
-    <Message compact className='msg'><p className='msg'><User /> <Msg /></p></Message>
+    <Message compact className='msg' ><p className='msg'><User /> <Msg message={props.message}/></p></Message>
   )
 }
 
