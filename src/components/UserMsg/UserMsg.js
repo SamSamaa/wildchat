@@ -7,7 +7,7 @@ import './UserMsg.css';
 
 function UserMsg(props) {
   return (
-    <Message compact className='msg' ><p className='msg'><User /> <Msg message={props.message}/></p></Message>
+    <Message compact className='msg' ><p className='msg'><User name={props.name} /> <Msg message={props.message}/></p></Message>
   )
 }
 

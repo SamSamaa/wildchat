@@ -2,15 +2,23 @@ import { socket } from './Socket';
 
 export const Client = {
 
-  receiveMessageOn(handleMessage){
+  receivedNewConnection(data) {
+    socket.on('NEW_CONNECTION', data);
+  },
+
+  receiveMessageOn(handleMessage) {
     socket.on('RECEIVE_MESSAGE', handleMessage);
   },
-  receiveMessageOff(handleMessage){
+  receiveMessageOff(handleMessage) {
     socket.off('RECEIVE_MESSAGE', handleMessage);
   },
-  sendMessageEmit(message){
+  sendMessageEmit(message) {
     socket.emit('SEND_MESSAGE', {
       'message': message
     })
   }
 }
+
+
+
+
