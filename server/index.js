@@ -15,6 +15,6 @@ io.sockets.on('connection', (socket) => {
     console.log(data);
     io.emit('RECEIVE_MESSAGE', data);
   });
-});
+})
 
 io.listen(8888);

@@ -28,7 +28,7 @@ export const Client = {
       name: name
     });
   }
-};
+}
 
 
 
