@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { Client } from "../../Client";
 import { Form } from 'semantic-ui-react';
 import './InputMsg.css';
