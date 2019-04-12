@@ -8,6 +8,7 @@ function UsersList() {
 
   const [users, setUsers] = useState([]);
 
+  //client method to set users array when there is new connection (don't work well)
   Client.receivedNewConnection(data => setUsers(data.users));
 
   return (

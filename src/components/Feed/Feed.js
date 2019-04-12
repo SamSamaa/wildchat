@@ -8,6 +8,7 @@ import './Feed.css';
 function Feed() {
   const [messages, setMessages] = useState([]);
 
+  // see client.js file for explanations
   useEffect(() => {
     const handleMessage = (data) => { addMessage(data) };
     Client.receiveMessageOn(handleMessage);
@@ -28,6 +29,7 @@ function Feed() {
     <List className="Feed">
       {messages.map((message, index) => {
         return (
+          //we pass parameters name and message to child component UserMsg
           <List.Item key={index}><UserMsg name={message.name} message={message.message}/></List.Item>
         )
       })}

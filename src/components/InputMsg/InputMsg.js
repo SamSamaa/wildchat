@@ -9,8 +9,11 @@ const InputMsg = () => {
   const [message, setMessage] = useState('');
 
   const [name, setName] = useState('');
+
+  //client method to set user id in sendMessage function to connect the right user to the right message
   Client.receivedNewConnection(data => setName(data.id))
 
+  //method to emit message to server via client and to delete message from the input message box
   const sendMessage = () => {
     Client.sendMessageEmit(message, name);
     setMessage('');
