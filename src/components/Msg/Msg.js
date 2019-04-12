@@ -1,8 +1,10 @@
 import React from 'react';
 
-function Msg() {
+//props serve to receive data from parent component
+function Msg(props) {
   return (
-    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</span>
+    // we receive props.message from UserMsg
+    <span>{props.message}</span>
   )
 }
 

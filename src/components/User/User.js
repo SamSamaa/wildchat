@@ -1,8 +1,10 @@
 import React from 'react';
 
-function User() {
+//props serve to receive data from parent component
+function User(props) {
   return (
-    <strong>Michel</strong>
+    // we receive props.name from UserMsg
+    <strong>{props.name}</strong>
   )
 }
 
