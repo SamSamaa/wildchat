@@ -10,7 +10,7 @@ function UserMsg(props) {
     // we receive props.name from Feed and "transform" it in name to send to child component User
     // we receive props.message from Feed and "transform" it in message to send to child component Msg
     <Message compact className='msg' ><p className='msg'><User name={props.name} /> <Msg message={props.message}/></p></Message>
-  )
-}
+  );
+};
 
 export default UserMsg;

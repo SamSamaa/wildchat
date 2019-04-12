@@ -26,9 +26,9 @@ export const Client = {
     socket.emit('SEND_MESSAGE', {
       message: message,
       name: name
-    })
+    });
   }
-}
+};
 
 
 

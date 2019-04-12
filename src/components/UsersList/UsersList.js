@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import User from '../User/User';
 import { List } from 'semantic-ui-react';
 import { Client } from "../../Client";
