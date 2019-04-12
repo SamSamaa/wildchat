@@ -1,15 +1,17 @@
-// Chargement de socket.io
 let io = require('socket.io')();
+
 let users = [];
 
 io.sockets.on('connection', (socket) => {
   users = [...users, socket.id]
   console.log(users);
 
+  //server send id connection and users array
   socket.emit('NEW_CONNECTION', { id: socket.id, users: users });
 
+  //when message arrive from client, server resend the message to all users
   socket.on('SEND_MESSAGE', (data) => {
-    console.log(data)
+    console.log(data);
     io.emit('RECEIVE_MESSAGE', data);
   });
   
