@@ -7,7 +7,7 @@ function MyProfile() {
   const [profile, setProfile] = useState('');
 
   //client method to set user id
-  Client.receivedNewConnection(data => setProfile(data.id));
+  Client.receivedNewUser(data => setProfile(data.id));
 
   return (
     <div className='MyProfile'>

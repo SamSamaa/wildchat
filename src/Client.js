@@ -6,6 +6,10 @@ export const Client = {
   //method used in MyProfile to set the user id and in InputMsg to connect the right user to the right message in an
   // object via sendMessageEmit method below
   //method used in UserList component to set users array
+  receivedNewUser(data) {
+    socket.on('NEW_USER', data);
+  },
+ 
   receivedNewConnection(data) {
     socket.on('NEW_CONNECTION', data);
   },
