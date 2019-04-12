@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import UserMsg from '../UserMsg/UserMsg';
+import UserMsg from './UserMsg/UserMsg';
 import { Client } from "../../Client";
 import { List } from 'semantic-ui-react';
 import './Feed.css';

@@ -6,6 +6,10 @@ export const Client = {
     socket.on('NEW_CONNECTION', data);
   },
 
+  receiveDisconnection(data) {
+    socket.on('NEW_DISCONNECT', data);
+},
+
   receiveMessageOn(handleMessage) {
     socket.on('RECEIVE_MESSAGE', handleMessage);
   },
@@ -18,8 +22,8 @@ export const Client = {
       name: name
     })
   }
-}
 
+}
 
 
 

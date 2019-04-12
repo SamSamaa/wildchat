@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Client } from "../../Client";
+import { Client } from "../../../Client";
 import './MyProfile.css'
 
 function MyProfile() {

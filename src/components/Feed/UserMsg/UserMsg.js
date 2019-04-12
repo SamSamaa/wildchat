@@ -1,5 +1,5 @@
 import React from 'react';
-import User from '../User/User';
+import User from '../../User/User';
 import Msg from '../Msg/Msg';
 import { Message } from 'semantic-ui-react';
 import './UserMsg.css';
