@@ -30,7 +30,7 @@ function Feed() {
         return (
           <List.Item key={index}><UserMsg name={message.name} message={message.message} /></List.Item> //we pass parameters name and message to child component UserMsg
         );
-      })};
+      })}
       <div id='bottom'></div>
     </List>
   )
