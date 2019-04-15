@@ -20,9 +20,9 @@ function App() {
         <Feed />
         <InputMsg />
       </div>
-      <div className={'infos'+(active ? ' active': ' inactive')} >
+      <div className={'infos' + (active ? ' active' : ' inactive')} >
         <button className='toggle' onClick={toggleUsers}>
-          <Icon name={ active ? 'chevron circle right' : 'chevron circle left'}/>
+          <Icon name={active ? 'chevron circle right' : 'chevron circle left'} />
         </button>
         <Logo />
         <UsersBox />

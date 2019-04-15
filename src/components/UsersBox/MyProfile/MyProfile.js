@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Client } from "../../../Client";
 import './MyProfile.css'
 
@@ -6,8 +6,8 @@ function MyProfile() {
 
   const [profile, setProfile] = useState('');
 
-  //client method to set user id
-  Client.receivedNewUser(data => setProfile(data.id));
+  Client.receivedNewUser(data => setProfile(data.name));
+  console.log(profile);
 
   return (
     <div className='MyProfile'>

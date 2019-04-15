@@ -16,7 +16,7 @@ export const Client = {
 
   receiveDisconnection(data) {
     socket.on('NEW_DISCONNECT', data);
-},
+  },
 
   // method to listen received message (mine and others messsages) from server 
   // handleMessage is a functions parameter used in feed to add new message in messages array defined in feed component (messages = array of 
