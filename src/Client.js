@@ -13,6 +13,9 @@ export const Client = {
   receivedNewConnection(data) {
     socket.on('NEW_CONNECTION', data);
   },
+  receiveHistoryMessage(history) {
+    socket.on('HISTORY_MESSAGES', history);
+  },
 
   receiveDisconnection(data) {
     socket.on('NEW_DISCONNECT', data);
