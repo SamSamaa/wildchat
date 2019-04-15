@@ -1,10 +1,14 @@
 let io = require('socket.io')();
 
 let users = [];
+let messages = [];
 
 io.sockets.on('connection', (socket) => {
-  users = [...users, socket.id]
-  console.log(users);
+  users = [...users, socket.id];
+  if (messages.length >= 500){
+    messages.splice(0,1);
+  };
+  io.emit('HISTORY_MESSAGES', messages);
 
   //server send id connection and users array
   socket.emit('NEW_USER', { id: socket.id, users: users });
@@ -12,6 +16,7 @@ io.sockets.on('connection', (socket) => {
 
   //when message arrive from client, server resend the message to all users
   socket.on('SEND_MESSAGE', (data) => {
+    messages = [...messages, data];
     console.log(data);
     io.emit('RECEIVE_MESSAGE', data);
   });

@@ -7,6 +7,11 @@ import './Feed.css';
 
 function Feed() {
   const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    Client.receiveHistoryMessage(data => setMessages(data))
+  }, []);
+
   // see client.js file for explanations
   useEffect(() => {
     const handleMessage = (data) => { addMessage(data) };
@@ -15,7 +20,7 @@ function Feed() {
       Client.receiveMessageOff(handleMessage);
     };
   }, [messages]);
-
+  console.log(messages)
   const addMessage = (data) => {
     setMessages([...messages, data]);
   };
