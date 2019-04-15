@@ -34,7 +34,6 @@ io.sockets.on('connection', (socket) => {
     });
 
       io.emit('NEW_DISCONNECT', users);
-    
       console.log(users)
 
 

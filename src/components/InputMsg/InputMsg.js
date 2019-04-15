@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Client } from "../../Client";
 import { Form } from 'semantic-ui-react';
 import './InputMsg.css';
@@ -10,11 +10,11 @@ const InputMsg = () => {
 
   const [name, setName] = useState('');
 
-  //client method to set user id in sendMessage function to connect the right user to the right message
-  Client.receivedNewConnection(data => setName(data.id))
+  Client.receivedNewUser(data => setName(data.name));
 
   //method to emit message to server via client and to delete message from the input message box
   const sendMessage = () => {
+    console.log(name);
     Client.sendMessageEmit(message, name);
     setMessage('');
   }
