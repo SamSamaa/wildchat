@@ -33,7 +33,7 @@ function Feed() {
     <List className="Feed">
       {messages.map((message, index) => {
         return (
-          <List.Item key={index}><UserMsg name={message.name} message={message.message} /></List.Item> //we pass parameters name and message to child component UserMsg
+          <List.Item key={index}><UserMsg name={message.name} message={message.message} date={message.date} /></List.Item> //we pass parameters name and message to child component UserMsg
         );
       })}
       <div id='bottom'></div>
