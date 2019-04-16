@@ -9,7 +9,9 @@ const CheckboxOption = () => {
         <Icon name='time' />
         <List.Content>
           <List.Header>Heure des messages</List.Header>
-          <List.Description><Checkbox className='checkbox' toggle /></List.Description>
+          <List.Description>
+            <Checkbox className='checkbox' toggle />
+          </List.Description>
         </List.Content>
       </List.Item>
       <List.Item className='listColor' as='a'>

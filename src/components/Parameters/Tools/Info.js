@@ -16,7 +16,7 @@ class Info extends Component {
         <Icon className='iconHover' onClick={this.show('blurring')} name='info circle' size='big' />
        
         <Modal  dimmer={dimmer} open={open} onClose={this.close} className='modalMenu'>
-          <Modal.Header>Information</Modal.Header>
+          <Modal.Header>Informations</Modal.Header>
             <Modal.Description>
               <p>
                 Application fait par: .......

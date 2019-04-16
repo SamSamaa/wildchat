@@ -17,7 +17,7 @@ class Tool extends Component {
         <Icon className='iconHover' onClick={this.show('blurring')} name='cog' size='big' />
        
         <Modal size='tiny' dimmer={dimmer} open={open} onClose={this.close} className='modalMenu'>
-          <Modal.Header>Option</Modal.Header>
+          <Modal.Header>Options</Modal.Header>
             <Modal.Description>
               <CheckboxOption />
             </Modal.Description>

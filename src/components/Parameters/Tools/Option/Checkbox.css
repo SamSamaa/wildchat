@@ -9,3 +9,9 @@
 .listTime{
   padding-top: 1em !important;
 }
+
+@media screen and (min-width: 600px){
+  .checkbox{
+    padding-left: 0 ;
+  }
+}
