@@ -15,16 +15,16 @@ io.sockets.on('connection', (socket) => {
     console.log(data);
     io.emit('RECEIVE_MESSAGE', data);
   });
-  
+
   socket.on('disconnect', () => {
     console.log(socket.id + ' disconnect');
-    users = users.filter(function(user) {
+    users = users.filter(function (user) {
       return user !== socket.id;
     });
 
-      io.emit('NEW_DISCONNECT', { id: socket.id, users: users });
-    
-      console.log(users)
+    io.emit('NEW_DISCONNECT', { id: socket.id, users: users });
+
+    console.log(users)
 
 
   });

@@ -7,3 +7,31 @@
 .Parameters i {
   color: var(--bg-color);
 }
+
+.modalMenu{
+  width: 60% !important;
+  height: 30%;
+  margin-left: 5vw !important;
+  bottom: 15%;
+  left: 0;
+  z-index: 10;
+}
+
+.iconHover{
+  -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.iconHover:hover{
+  -webkit-transform: scale(1.7);
+  transform: scale(1.7);
+}
+
+@media screen and (min-width: 600px){
+  .modalMenu{
+    margin-left: 2vw !important;
+    width:26% !important;
+  }
+}

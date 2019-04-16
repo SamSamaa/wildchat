@@ -16,8 +16,7 @@ function Feed() {
     };
   }, [messages]);
 
-  const addMessage = (data) => {
-    setMessages([...messages, data]);
+  const addMessage = (data) => {setMessages([...messages, data]);
   };
 
   useEffect(() => {
