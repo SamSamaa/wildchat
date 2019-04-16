@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import UserMsg from './UserMsg/UserMsg';
+import UserConnection from './UserConnection/UserConnection'
+import UserDisconnection from './UserDisconnection/UserDisconnection'
 import { Client } from "../../Client";
 import { List } from 'semantic-ui-react';
 import './Feed.css';
@@ -33,9 +35,11 @@ function Feed() {
     <List className="Feed">
       {messages.map((message, index) => {
         return (
-          <List.Item key={index}><UserMsg name={message.name} message={message.message} /></List.Item> //we pass parameters name and message to child component UserMsg
+          <List.Item key={index}><UserMsg name={message.name} message={message.message} /></List.Item>
+           //we pass parameters name and message to child component UserMsg
         );
       })}
+        <UserConnection/>
       <div id='bottom'></div>
     </List>
   )

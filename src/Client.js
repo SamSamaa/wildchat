@@ -9,12 +9,19 @@ export const Client = {
   receivedNewUser(data) {
     socket.on('NEW_USER', data);
   },
+  receiveNewUserConnection(data){
+    socket.on('USER_CONNECTION', data);
+  },
  
   receivedNewConnection(data) {
     socket.on('NEW_CONNECTION', data);
   },
   receiveHistoryMessage(history) {
     socket.on('HISTORY_MESSAGES', history);
+  },
+
+  receiveNewUserDisconnection(data){
+    socket.on('USER_DISCONNECT', data);
   },
 
   receiveDisconnection(data) {

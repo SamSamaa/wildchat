@@ -22,6 +22,7 @@ io.sockets.on('connection', (socket) => {
 
   //server send id connection and users array
   socket.emit('NEW_USER', user);
+  socket.broadcast.emit('USER_CONNECTION', user);
   io.emit('NEW_CONNECTION', users);
 
   //when message arrive from client, server resend the message to all users
@@ -37,7 +38,7 @@ io.sockets.on('connection', (socket) => {
     users = users.filter(function(u) {
       return u.id !== user.id;
     });
-
+      socket.broadcast.emit('USER_DISCONNECT', user);
       io.emit('NEW_DISCONNECT', users);
       console.log(users)
 
