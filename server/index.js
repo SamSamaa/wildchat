@@ -27,6 +27,9 @@ io.sockets.on('connection', (socket) => {
   //when message arrive from client, server resend the message to all users
   socket.on('SEND_MESSAGE', (data) => {
     messages = [...messages, data];
+    
+    // Ajout de la date
+    data.date = new Date();
     console.log(data);
     io.emit('RECEIVE_MESSAGE', data);
   });
