@@ -21,6 +21,8 @@ io.sockets.on('connection', (socket) => {
     history.splice(0,1);
   };
 
+  console.log(history);
+
   //server send id connection and users array
   socket.emit('NEW_USER', {user, history});
   io.emit('NEW_CONNECTION', users);

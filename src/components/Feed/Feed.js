@@ -8,9 +8,9 @@ import './Feed.css';
 function Feed() {
   const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
-    Client.receivedNewUser(data => setMessages(data.history))
-  }, []);
+  Client.receivedNewUser(data => {
+    setMessages(data.history);
+  });
 
   // see client.js file for explanations
   useEffect(() => {

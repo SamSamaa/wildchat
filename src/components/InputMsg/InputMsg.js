@@ -14,7 +14,6 @@ const InputMsg = () => {
 
   //method to emit message to server via client and to delete message from the input message box
   const sendMessage = () => {
-    console.log(name);
     Client.sendMessageEmit(message, name);
     setMessage('');
   }
