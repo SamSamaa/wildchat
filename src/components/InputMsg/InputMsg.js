@@ -10,7 +10,7 @@ const InputMsg = () => {
 
   const [name, setName] = useState('');
 
-  Client.receivedNewUser(data => setName(data.name));
+  Client.receivedNewUser(data => setName(data.user.name));
 
   //method to emit message to server via client and to delete message from the input message box
   const sendMessage = () => {

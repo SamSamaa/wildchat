@@ -6,7 +6,7 @@ function MyProfile() {
 
   const [profile, setProfile] = useState('');
 
-  Client.receivedNewUser(data => setProfile(data.name));
+  Client.receivedNewUser(data => setProfile(data.user.name));
 
   return (
     <div className='MyProfile'>

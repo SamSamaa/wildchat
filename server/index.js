@@ -2,6 +2,7 @@ let io = require('socket.io')();
 
 let users = [];
 let messages = [];
+let history = [];
 
 let names = ['Gilbert', 'Alfred', 'Maurice', 'Robert', 'Yves', 'Gérard', 'Hubert', 'Eude', 'Michel', 'Claude', 'Jacques', 'Guy', 'Marcel', 'José'];
 const randomName = names => names[Math.floor(Math.random() * names.length)];
@@ -15,19 +16,18 @@ io.sockets.on('connection', (socket) => {
   };
   users = [...users, user]
 
-  if (messages.length >= 500){
-    messages.splice(0,1);
+  history = messages
+  while (history.length > 5){
+    history.splice(0,1);
   };
-  io.emit('HISTORY_MESSAGES', messages);
 
   //server send id connection and users array
-  socket.emit('NEW_USER', user);
+  socket.emit('NEW_USER', {user, history});
   io.emit('NEW_CONNECTION', users);
 
   //when message arrive from client, server resend the message to all users
   socket.on('SEND_MESSAGE', (data) => {
     messages = [...messages, data];
-    console.log(data);
     io.emit('RECEIVE_MESSAGE', data);
   });
   
