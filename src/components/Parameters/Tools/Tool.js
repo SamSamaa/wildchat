@@ -1,16 +1,21 @@
 import React, {Component} from 'react';
 import { Icon, Modal  } from 'semantic-ui-react';
+import CheckboxOption from './Option/CheckboxOption';
 import '../Parameters.css';
-import CheckboxOption from './Option/CheckboxOption'
 
 class Tool extends Component {
-  state = { open: false }
+  constructor() {
+    super();
+    this.state = {
+      open: false
+    }
+  }
 
-  show = (dimmer) => () => this.setState({ dimmer, open: true })
-  close = () => this.setState({ open: false })
+  show = (dimmer) => () => this.setState({ dimmer, open: true });
+  close = () => this.setState({ open: false });
 
   render() {
-    const { open, dimmer } = this.state
+    const { open, dimmer } = this.state;
 
     return (
       <div>

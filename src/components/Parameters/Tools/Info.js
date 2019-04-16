@@ -3,13 +3,18 @@ import { Icon, Modal } from 'semantic-ui-react';
 import '../Parameters.css';
 
 class Info extends Component {
-  state = { open: false }
+  constructor() {
+    super();
+    this.state = {
+      open: false
+    };
+  }
 
-  show = (dimmer) => () => this.setState({ dimmer, open: true })
-  close = () => this.setState({ open: false })
+  show = (dimmer) => () => this.setState({ dimmer, open: true });
+  close = () => this.setState({ open: false });
 
   render() {
-    const { open, dimmer } = this.state
+    const { open, dimmer } = this.state;
 
     return (
       <div>

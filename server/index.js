@@ -14,7 +14,7 @@ io.sockets.on('connection', (socket) => {
     id: socket.id, 
     name: `${randomName(names)}_${randomNumber()}${randomNumber()}`
   };
-  users = [...users, user]
+  users = [...users, user];
 
   history = messages
   while (history.length > 5){
@@ -45,8 +45,7 @@ io.sockets.on('connection', (socket) => {
     });
 
       io.emit('NEW_DISCONNECT', users);
-      console.log(users)
-
+      console.log(users);
 
   });
 
