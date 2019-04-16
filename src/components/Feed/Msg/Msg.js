@@ -7,7 +7,7 @@ moment.locale('fr');
 
 function Msg(props) {
   return (
-    <span>{props.message}<br/><span className='date'>{moment(props.date).format('L - LT')}</span></span>
+    <span className='mssg'>{props.message}<br/><span className='date'>{moment(props.date).format('L - LT')}</span></span>
   )
 }
 
