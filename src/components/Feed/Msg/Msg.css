@@ -5,5 +5,7 @@
 }
 
 .mssg {
+  max-width: inherit;
   word-break: break-all;
+  word-wrap: break-word;
 }
