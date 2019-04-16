@@ -1,11 +1,21 @@
-import React from 'react';
-import './Counter.css';
+import React, { useState, useEffect} from 'react';
+import { List } from 'semantic-ui-react';
+import { Client } from "../../../Client";
+
 
 function Counter() {
-  return (
-    <div className='Counter'>
-      <h3>Users online: 6</h3>
-    </div>
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    Client.receivedNewConnection((data) => setUsers(data));
+    Client.receiveDisconnection((data) => setUsers(data));
+  }, []); // = componentDidMount
+  
+return (
+    <List className='Counter'>
+      Users Online : {users.length}
+    </List>
   )
 }
 
