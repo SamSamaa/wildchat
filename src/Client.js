@@ -8,6 +8,10 @@ export const Client = {
   receivedNewUser(data) {
     socket.on('NEW_USER', data);
   },
+
+  receiveSystMsg(data){
+    socket.on('SYST_MSG', data);
+  },
  
   receivedNewConnection(data) {
     socket.on('NEW_CONNECTION', data);
