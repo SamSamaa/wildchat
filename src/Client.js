@@ -1,6 +1,10 @@
 import { socket } from './Socket';
 
 export const Client = {
+  sendUsername(username){
+    console.log(username + 'client')
+    socket.emit('SEND_USERNAME', username);
+  },
 
   //method to listen new connection form server, data = id of my connection and users array (not working well)
   //method used in MyProfile to set the user id and in InputMsg to connect the right user to the right message in an
