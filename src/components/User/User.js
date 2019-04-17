@@ -4,7 +4,7 @@ import React from 'react';
 function User(props) {
   return (
     // we receive props.name from UserMsg
-    <strong>{props.name}</strong>
+    <strong onClick={() => props.atUser(props.name)}>{props.name}</strong>
   )
 }
 

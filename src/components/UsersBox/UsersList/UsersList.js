@@ -4,7 +4,7 @@ import { List } from 'semantic-ui-react';
 import { Client } from "../../../Client";
 import './UsersList.css';
 
-function UsersList() {
+function UsersList(props) {
 
   const [users, setUsers] = useState([]);
   
@@ -18,7 +18,7 @@ function UsersList() {
     <List className='UsersList'>
       {
         users.map((user, index) => {
-          return <List.Item key={index} ><User name={user.name} /></List.Item>
+          return <List.Item key={index} ><User atUser={props.atUser}  name={user.name} /></List.Item>
         })
       }
     </List>

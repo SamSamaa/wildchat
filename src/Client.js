@@ -35,9 +35,9 @@ export const Client = {
       message: message,
       name: name
     });
+  },
+
+  privateMessage(){
+
   }
-
 }
-
-
-

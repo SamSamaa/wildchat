@@ -4,7 +4,7 @@ import { Form } from 'semantic-ui-react';
 import './InputMsg.css';
 
 
-const InputMsg = () => {
+const InputMsg = (props) => {
 
   const [message, setMessage] = useState('');
 
@@ -20,10 +20,14 @@ const InputMsg = () => {
 
   return (
     <Form className='InputMsg' onSubmit={() => sendMessage()}>
-      <Form.Input action='Send' placeholder='Type your message...' value={message} onChange={(e) => { setMessage(e.target.value) }} />
+      <Form.Input 
+        action='Send' 
+        placeholder='Type your message...' 
+        value={props.atUser} 
+        onChange={(e) => { setMessage(e.target.value) }} 
+      />
     </Form>
   )
 }
 
 export default InputMsg;
-
