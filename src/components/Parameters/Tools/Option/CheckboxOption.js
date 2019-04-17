@@ -1,6 +1,5 @@
-import React,{ useState } from 'react'
-import { Icon, Checkbox, List } from 'semantic-ui-react'
-import Client from '../../../../Client';
+import React from 'react';
+import { Icon, Checkbox, List } from 'semantic-ui-react';
 import './Checkbox.css';
 
 function CheckboxOption(props) {
