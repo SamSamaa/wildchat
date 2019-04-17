@@ -28,7 +28,7 @@ function App() {
         </button>
         <Logo />
         <UsersBox />
-        <Parameters toggleDate={toggleDate}/>
+        <Parameters toggleDate={toggleDate} showDate={date}/>
       </div>
     </div>
   );

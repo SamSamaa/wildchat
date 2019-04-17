@@ -6,7 +6,7 @@ import Info from './Tools/Info';
 function Parameters(props) {
   return (
     <div className='Parameters' >
-      <Tool toggleDate={props.toggleDate} />
+      <Tool toggleDate={props.toggleDate} showDate={props.showDate} />
       <Info />
     </div>
   )
