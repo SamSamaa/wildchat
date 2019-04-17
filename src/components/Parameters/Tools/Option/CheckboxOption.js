@@ -18,7 +18,9 @@ function CheckboxOption(props) {
         <Icon name='theme' />
         <List.Content>
           <List.Header>Thème</List.Header>
-          <List.Description></List.Description>
+          <List.Description>
+          <Icon name="stop" className='iconeblue' onClick={props.clickColorBlue} checked={props.colorBlue} />
+          </List.Description>
         </List.Content>
       </List.Item>
       <List.Item>

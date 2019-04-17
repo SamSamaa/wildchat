@@ -24,7 +24,8 @@ function Tool(props) {
       <Modal size='tiny' dimmer={dimmer} open={open} onClose={close} className='modalMenu'>
         <Modal.Header>Options</Modal.Header>
         <Modal.Description>
-          <CheckboxOption toggleDate={props.toggleDate} showDate={props.showDate} />
+          <CheckboxOption toggleDate={props.toggleDate} showDate={props.showDate}
+          clickColorBlue={props.clickColorBlue} showBlue={props.colorBlue} />
         </Modal.Description>
       </Modal>
     </div>

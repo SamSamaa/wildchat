@@ -11,15 +11,18 @@ function App() {
 
   const [active, toggleActive] = useState(false);
   const [date, setDate] = useState(false);
+  const [colorBlue, setColorBlue] = useState(false);
 
   const toggleDate = () => setDate(!date);
+  const clickColorBlue = () => setColorBlue(!colorBlue);
 
   const toggleUsers = () => toggleActive(!active);
 
   return (
     <div className='App'>
       <div className='chat'>
-        <Feed showDate={date} />
+        <Feed showDate={date}
+        showBlue={colorBlue} />
         <InputMsg />
       </div>
       <div className={'infos' + (active ? ' active' : ' inactive')} >
@@ -28,7 +31,10 @@ function App() {
         </button>
         <Logo />
         <UsersBox />
-        <Parameters toggleDate={toggleDate} showDate={date}/>
+        <Parameters
+        toggleDate={toggleDate} showDate={date}
+        clickColorBlue={clickColorBlue} showBlue={colorBlue}
+        />
       </div>
     </div>
   );
