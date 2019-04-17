@@ -4,3 +4,11 @@
   margin: 0 !important;
   background-color: var(--bg-color);
 }
+
+#SystemeMessage {
+  font-style:italic;
+  color:grey;
+  margin-left:12px;
+  padding-top:5px;
+  padding-bottom:5px;
+}
