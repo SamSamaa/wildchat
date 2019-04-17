@@ -39,6 +39,10 @@ export const Client = {
       message: message,
       name: name
     });
+  },
+
+  sendDisconnection(username){
+    socket.emit('SEND_DISCONNECTION', username);
   }
 
 }

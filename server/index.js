@@ -49,7 +49,15 @@ io.sockets.on('connection', (socket) => {
 
     io.emit('NEW_DISCONNECT', users);
     console.log(users);
-});
+  });
+  socket.on('SEND_DISCONNECTION', (username) => {
+    users = users.filter(function (u) {
+      return u.username !== user.username;
+    });
+
+    io.emit('NEW_DISCONNECT', users);
+    console.log(users);
+  });
 
 });
 
