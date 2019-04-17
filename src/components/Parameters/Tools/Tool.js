@@ -4,6 +4,7 @@ import CheckboxOption from './Option/CheckboxOption';
 import '../Parameters.css';
 
 function Tool(props) {
+  
   const [open, setOpen] = useState(false);
   const [dimmer, setDimmer] = useState(true);
 
@@ -20,7 +21,6 @@ function Tool(props) {
   return (
     <div>
       <Icon className='iconHover' onClick={show} name='cog' size='big' />
-
       <Modal size='tiny' dimmer={dimmer} open={open} onClose={close} className='modalMenu'>
         <Modal.Header>Options</Modal.Header>
         <Modal.Description>

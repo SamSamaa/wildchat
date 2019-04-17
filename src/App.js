@@ -13,7 +13,6 @@ function App() {
   const [date, setDate] = useState(false);
 
   const toggleDate = () => setDate(!date);
-
   const toggleUsers = () => toggleActive(!active);
 
   return (
