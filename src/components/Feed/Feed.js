@@ -4,7 +4,7 @@ import { Client } from "../../Client";
 import { List } from 'semantic-ui-react';
 import './Feed.css';
 
-function Feed() {
+function Feed(props) {
   const [messages, setMessages] = useState([]);
 
   Client.receivedNewUser(data => {
@@ -31,7 +31,7 @@ function Feed() {
     <List className="Feed">
       {messages.map((message, index) => {
         return (
-          <List.Item key={index}><UserMsg name={message.name} message={message.message} date={message.date} /></List.Item> //we pass parameters name and message to child component UserMsg
+          <List.Item key={index}><UserMsg name={message.name} message={message.message} date={message.date} showDate={props.showDate} /></List.Item> //we pass parameters name and message to child component UserMsg
         );
       })}
       <div id='bottom'></div>

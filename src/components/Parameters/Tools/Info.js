@@ -1,34 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Icon, Modal } from 'semantic-ui-react';
 import '../Parameters.css';
 
-class Info extends Component {
-  constructor() {
-    super();
-    this.state = {
-      open: false
-    };
-  }
+function Info() {
 
-  show = (dimmer) => () => this.setState({ dimmer, open: true });
-  close = () => this.setState({ open: false });
+  const [open, setOpen] = useState(false);
+  const [dimmer, setDimmer] = useState(true);
 
-  render() {
-    const { open, dimmer } = this.state;
+  const show = () => {
+    setOpen(true);
+    setDimmer('blurring');
+  };
 
-    return (
-      <div>
-        <Icon className='iconHover' onClick={this.show('blurring')} name='info circle' size='big' />
+  const close = () => {
+    setOpen(false);
+    setDimmer(true);
+  };
 
-        <Modal dimmer={dimmer} open={open} onClose={this.close} className='modalMenu'>
-          <Modal.Header>Informations</Modal.Header>
-          <Modal.Description>
-            <p>Application fait par: .......</p>
-          </Modal.Description>
-        </Modal>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <Icon className='iconHover' onClick={show} name='info circle' size='big' />
+
+      <Modal dimmer={dimmer} open={open} onClose={close} className='modalMenu'>
+        <Modal.Header>Informations</Modal.Header>
+        <Modal.Description>
+          <p>Application fait par: .......</p>
+        </Modal.Description>
+      </Modal>
+    </div>
+  )
 }
 
 export default Info;

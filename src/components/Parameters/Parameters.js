@@ -3,10 +3,10 @@ import './Parameters.css';
 import Tool from './Tools/Tool';
 import Info from './Tools/Info';
 
-function Parameters() {
+function Parameters(props) {
   return (
     <div className='Parameters' >
-      <Tool />
+      <Tool toggleDate={props.toggleDate} />
       <Info />
     </div>
   )

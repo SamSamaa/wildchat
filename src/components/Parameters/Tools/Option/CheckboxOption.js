@@ -1,8 +1,9 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import { Icon, Checkbox, List } from 'semantic-ui-react'
+import Client from '../../../../Client';
 import './Checkbox.css';
 
-const CheckboxOption = () => {
+function CheckboxOption(props) {
   return (
     <List className='list'>
       <List.Item className='listTime' as='a'>
@@ -10,7 +11,7 @@ const CheckboxOption = () => {
         <List.Content>
           <List.Header>Heure des messages</List.Header>
           <List.Description>
-            <Checkbox className='checkbox' toggle />
+            <Checkbox className='checkbox' onClick={props.toggleDate} toggle />
           </List.Description>
         </List.Content>
       </List.Item>

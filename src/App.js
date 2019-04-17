@@ -10,13 +10,16 @@ import './App.css';
 function App() {
 
   const [active, toggleActive] = useState(false);
+  const [date, setDate] = useState(false);
+
+  const toggleDate = () => setDate(!date);
 
   const toggleUsers = () => toggleActive(!active);
 
   return (
     <div className='App'>
       <div className='chat'>
-        <Feed />
+        <Feed showDate={date} />
         <InputMsg />
       </div>
       <div className={'infos' + (active ? ' active' : ' inactive')} >
@@ -25,7 +28,7 @@ function App() {
         </button>
         <Logo />
         <UsersBox />
-        <Parameters />
+        <Parameters toggleDate={toggleDate}/>
       </div>
     </div>
   );
