@@ -4,7 +4,6 @@ import { Client } from "../../Client";
 import { List } from 'semantic-ui-react';
 import './Feed.css';
 
-
 function Feed() {
   const [messages, setMessages] = useState([]);
 

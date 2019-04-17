@@ -13,7 +13,6 @@ function UsersList() {
     Client.receiveDisconnection((data) => setUsers(data));
   }, []); // = componentDidMount
 
-
   return (
     <List className='UsersList'>
       {

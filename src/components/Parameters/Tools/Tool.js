@@ -32,5 +32,4 @@ class Tool extends Component {
   }
 }
 
-
 export default Tool;

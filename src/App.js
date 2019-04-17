@@ -13,7 +13,6 @@ function App() {
 
   const toggleUsers = () => toggleActive(!active);
 
-
   return (
     <div className='App'>
       <div className='chat'>

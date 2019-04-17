@@ -1,7 +1,6 @@
 import { socket } from './Socket';
 
 export const Client = {
-
   //method to listen new connection form server, data = id of my connection and users array (not working well)
   //method used in MyProfile to set the user id and in InputMsg to connect the right user to the right message in an
   // object via sendMessageEmit method below
@@ -17,7 +16,6 @@ export const Client = {
   receiveDisconnection(data) {
     socket.on('NEW_DISCONNECT', data);
   },
-
   // method to listen received message (mine and others messsages) from server 
   // handleMessage is a functions parameter used in feed to add new message in messages array defined in feed component (messages = array of 
   // objects with user and message)
@@ -25,10 +23,10 @@ export const Client = {
   receiveMessageOn(handleMessage) {
     socket.on('RECEIVE_MESSAGE', handleMessage);
   },
+
   receiveMessageOff(handleMessage) {
     socket.off('RECEIVE_MESSAGE', handleMessage);
   },
-
   //method to emit message to server, used in feed component 
   sendMessageEmit(message, name) {
     socket.emit('SEND_MESSAGE', {
@@ -36,7 +34,6 @@ export const Client = {
       name: name
     });
   }
-
 }
 
 

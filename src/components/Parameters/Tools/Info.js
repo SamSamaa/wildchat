@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Icon, Modal } from 'semantic-ui-react';
 import '../Parameters.css';
 
@@ -19,15 +19,12 @@ class Info extends Component {
     return (
       <div>
         <Icon className='iconHover' onClick={this.show('blurring')} name='info circle' size='big' />
-       
-        <Modal  dimmer={dimmer} open={open} onClose={this.close} className='modalMenu'>
+
+        <Modal dimmer={dimmer} open={open} onClose={this.close} className='modalMenu'>
           <Modal.Header>Informations</Modal.Header>
-            <Modal.Description>
-              <p>
-                Application fait par: .......
-              </p>
-              
-            </Modal.Description>
+          <Modal.Description>
+            <p>Application fait par: .......</p>
+          </Modal.Description>
         </Modal>
       </div>
     )
