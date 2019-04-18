@@ -41,8 +41,8 @@ export const Client = {
     });
   },
 
-  sendDisconnection(username){
-    socket.emit('SEND_DISCONNECTION', username);
+  sendDisconnection(user){
+    socket.emit('SEND_DISCONNECTION', user);
   }
 
 }

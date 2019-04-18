@@ -7,7 +7,6 @@ function MyProfile() {
   const [profile, setProfile] = useState('');
 
   Client.receivedNewUser(data => setProfile(data.user.name));
-  Client.receiveDisconnection (() => setProfile(''));
 
   return (
     <div className='MyProfile'>

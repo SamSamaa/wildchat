@@ -10,7 +10,7 @@ io.sockets.on('connection', (socket) => {
     id: socket.id,
     name : ''
   }
-
+console.log(user)
   history = messages
   while (history.length > 5){
     history.splice(0,1);
@@ -50,9 +50,10 @@ io.sockets.on('connection', (socket) => {
     io.emit('NEW_DISCONNECT', users);
     console.log(users);
   });
-  socket.on('SEND_DISCONNECTION', (username) => {
+  socket.on('SEND_DISCONNECTION', (user) => {
+    console.log(user + 'server');
     users = users.filter(function (u) {
-      return u.username !== user.username;
+      return u.id !== user;
     });
 
     io.emit('NEW_DISCONNECT', users);
