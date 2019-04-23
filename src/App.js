@@ -11,18 +11,22 @@ function App() {
 
   const [active, toggleActive] = useState(false);
   const [date, setDate] = useState(false);
-  const [colorBlue, setColorBlue] = useState(false);
+  const [color, setColor] = useState("");
 
   const toggleDate = () => setDate(!date);
-  const clickColorBlue = () => setColorBlue(!colorBlue);
+  const clickColorBlue = () => setColor("blue");
+  const clickColorRed = () => setColor("red");
+  const clickColorGreen = () => setColor("green");
+  const clickColorViolet = () => setColor("");
+  const clickColorGrey = () => setColor("grey");
+  const clickColorNight = () => setColor("night");
 
   const toggleUsers = () => toggleActive(!active);
 
   return (
-    <div className='App'>
+    <div className={'App' + ' ' + color}>
       <div className='chat'>
-        <Feed showDate={date}
-        showBlue={colorBlue} />
+        <Feed showDate={date} />
         <InputMsg />
       </div>
       <div className={'infos' + (active ? ' active' : ' inactive')} >
@@ -32,8 +36,14 @@ function App() {
         <Logo />
         <UsersBox />
         <Parameters
-        toggleDate={toggleDate} showDate={date}
-        clickColorBlue={clickColorBlue} showBlue={colorBlue}
+          toggleDate={toggleDate}
+          showDate={date}
+          clickColorBlue={clickColorBlue}
+          clickColorGreen={clickColorGreen}
+          clickColorViolet={clickColorViolet}
+          clickColorGrey={clickColorGrey}
+          clickColorRed={clickColorRed}
+          clickColorNight={clickColorNight}
         />
       </div>
     </div>

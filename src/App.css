@@ -3,10 +3,40 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  --main-color: #6435c9;
+  --main-color: #9a5c9c;
   --bg-color: #efedf4;
   --text-color: #ffffff;
   background-color: var(--bg-color);
+}
+
+.blue {
+  --main-color: #2193b0;
+  --bg-color: #f4eded;
+  --text-color: #ffffff;
+}
+
+.red {
+  --main-color:rgb(199, 80, 78);
+  --bg-color: #e7e7e7;
+  --text-color: #ffffff;
+}
+
+.grey {
+  --main-color: rgb(117, 117, 117);
+  --bg-color: #e7e7e7;
+  --text-color: #ffffff;
+}
+
+.green {
+  --main-color: rgb(103, 148, 91);
+  --bg-color: rgb(228, 228, 228);
+  --text-color: #f0f0f0;
+}
+
+.night {
+  --main-color: rgb(51, 51, 51);
+  --bg-color: #6e6d6d;
+  --text-color: #ffffff;
 }
 
 ::-webkit-scrollbar { 

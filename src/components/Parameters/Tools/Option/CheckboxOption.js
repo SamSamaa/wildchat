@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon, Checkbox, List } from 'semantic-ui-react';
 import './Checkbox.css';
+import '../../../../App.css';
 
 function CheckboxOption(props) {
   return (
@@ -19,7 +20,12 @@ function CheckboxOption(props) {
         <List.Content>
           <List.Header>Thème</List.Header>
           <List.Description>
-          <Icon name="stop" className='iconeblue' onClick={props.clickColorBlue} checked={props.colorBlue} />
+          <Icon className="redIcon" name="stop" size='large'  title="Red" onClick={props.clickColorRed} />
+          <Icon className="greenIcon" name="stop" size='large' title="Green" onClick={props.clickColorGreen} />
+          <Icon className="violetIcon" name="stop" size='large' title="Violet" onClick={props.clickColorViolet} />
+          <Icon className="greyIcon" name="stop" size='large' title="Grey" onClick={props.clickColorGrey} />
+          <Icon className="blueIcon" name="stop" size='large' title="Blue" onClick={props.clickColorBlue} />
+          <Icon className="nightIcon" name="moon" size='large' title="Night Mode" onClick={props.clickColorNight} />
           </List.Description>
         </List.Content>
       </List.Item>

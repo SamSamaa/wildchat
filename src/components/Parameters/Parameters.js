@@ -6,8 +6,15 @@ import Info from './Tools/Info';
 function Parameters(props) {
   return (
     <div className='Parameters' >
-      <Tool toggleDate={props.toggleDate} showDate={props.showDate}
-      clickColorBlue={props.clickColorBlue} showBlue={props.colorBlue} />
+      <Tool 
+        toggleDate={props.toggleDate}
+        showDate={props.showDate}
+        clickColorBlue={props.clickColorBlue}
+        clickColorGreen={props.clickColorGreen}
+        clickColorViolet={props.clickColorViolet}
+        clickColorGrey={props.clickColorGrey}
+        clickColorRed={props.clickColorRed}
+        clickColorNight={props.clickColorNight} />
       <Info />
     </div>
   )
