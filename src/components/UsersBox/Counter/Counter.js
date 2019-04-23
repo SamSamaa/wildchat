@@ -1,7 +1,6 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { List } from 'semantic-ui-react';
 import { Client } from "../../../Client";
-
 
 function Counter() {
 
@@ -11,8 +10,8 @@ function Counter() {
     Client.receivedNewConnection((data) => setUsers(data));
     Client.receiveDisconnection((data) => setUsers(data));
   }, []); // = componentDidMount
-  
-return (
+
+  return (
     <List className='Counter'>
       Users Online : {users.length}
     </List>

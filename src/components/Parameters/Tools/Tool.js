@@ -4,6 +4,7 @@ import CheckboxOption from './Option/CheckboxOption';
 import '../Parameters.css';
 
 function Tool(props) {
+  
   const [open, setOpen] = useState(false);
   const [dimmer, setDimmer] = useState(true);
 

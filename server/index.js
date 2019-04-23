@@ -16,10 +16,10 @@ io.sockets.on('connection', (socket) => {
   };
   users = [...users, user];
 
-  history = messages
+  history = messages;
   while (history.length > 5) {
     history.splice(0, 1);
-  };
+  }
 
   console.log(history);
 
