@@ -1,12 +1,13 @@
 import React from 'react';
-import { Icon } from 'semantic-ui-react';
 import './Parameters.css';
+import Tool from './Tools/Tool';
+import Info from './Tools/Info';
 
-function Parameters() {
+function Parameters(props) {
   return (
     <div className='Parameters' >
-      <Icon name='cog' size='big' />
-      <Icon name='info circle' size='big' />
+      <Tool toggleDate={props.toggleDate} showDate={props.showDate} />
+      <Info />
     </div>
   )
 }

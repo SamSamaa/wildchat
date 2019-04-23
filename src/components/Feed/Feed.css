@@ -2,5 +2,14 @@
   overflow-x: hidden;
   overflow-y: auto;
   margin: 0 !important;
+  width: inherit;
   background-color: var(--bg-color);
+}
+
+#SystemeMessage {
+  font-style:italic;
+  color:grey;
+  margin-left:12px;
+  padding-top:5px;
+  padding-bottom:5px;
 }
