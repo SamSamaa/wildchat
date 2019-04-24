@@ -8,21 +8,33 @@ const InputMsg = (props) => {
   const [message, setMessage] = useState('');
   const [name, setName] = useState('');
 
-  Client.receivedNewUser(data => setName(data.user.name));
 
+  Client.receivedNewUser(data => setName(data.user.name));
   //method to emit message to server via client and to delete message from the input message box
   const sendMessage = () => {
-    Client.sendMessageEmit(message, name);
-    setMessage('');
+    if (props.selectUser !== '') {
+      console.log('private')
+      setMessage(`@${props.selectUser.user} `);
+      Client.sendPrivateMessage(message, name, props.selectUser.id);
+    }else{
+      console.log('public')
+      Client.sendMessageEmit(message, name);
+      setMessage('');
+    };
   }
 
   useEffect(() => {
-    Client.sendPrivateMessage(message, name);
-    if(props.selectUser !== ''){
-      setMessage(`@${props.selectUser} `)
-    };
+    
+    sendMessage();
   }, [props.selectUser])
- 
+
+  // useEffect(() => {
+  //   if (props.selectUser !== '') {
+  //     Client.sendPrivateMessage(message, name, id);
+  //     setMessage(`@${props.selectUser.user} `)
+  //   };
+  // }, [props.selectUser])
+
   return (
     <Form className='InputMsg' onSubmit={() => sendMessage()}>
       <Form.Input

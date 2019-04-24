@@ -7,7 +7,6 @@ import './UsersList.css';
 function UsersList(props) {
 
   const [users, setUsers] = useState([]);
-  
   useEffect(() => {
     Client.receivedNewConnection((data) => setUsers(data));
     Client.receiveDisconnection((data) => setUsers(data));
@@ -18,7 +17,7 @@ function UsersList(props) {
     <List className='UsersList'>
       {
         users.map((user, index) => {
-          return <List.Item key={index} ><User atUser={props.atUser}  name={user.name} /></List.Item>
+          return <List.Item key={index} ><User atUser={props.atUser}  name={user.name} id={user.id}/></List.Item>
         })
       }
     </List>

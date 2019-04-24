@@ -12,6 +12,9 @@ function Feed(props) {
     setMessages(data.history);
   });
 
+  Client.receivePrivateMessage((data) => {
+    console.log(data)
+  })
   // see client.js file for explanations
   useEffect(() => {
     const handleMessage = (data) => { addMessage(data) };

@@ -14,8 +14,8 @@ function App() {
 
   const toggleUsers = () => toggleActive(!active);
 
-  const atUser = (user) => {
-    setSelectedUser(user);
+  const atUser = (user, id) => {
+    setSelectedUser({user, id});
   }
 
   return (
