@@ -12,6 +12,7 @@ function App() {
   const [active, toggleActive] = useState(false);
   const [date, setDate] = useState(false);
   const [color, setColor] = useState("");
+  const [connected, setConnected] = useState(false);
 
   const toggleDate = () => setDate(!date);
   const clickColorBlue = () => setColor("blue");
@@ -21,20 +22,21 @@ function App() {
   const clickColorGrey = () => setColor("grey");
   const clickColorNight = () => setColor("night");
 
+  const isConnected = (connected) => {setConnected(connected)}
   const toggleUsers = () => toggleActive(!active);
-
+  
   return (
     <div className={'App' + ' ' + color}>
       <div className='chat'>
-        <Feed showDate={date} />
-        <InputMsg />
+        <Feed showDate={date} connected={connected}/>
+        <InputMsg connected={connected}/>
       </div>
       <div className={'infos' + (active ? ' active' : ' inactive')} >
         <button className='toggle' onClick={toggleUsers}>
           <Icon name={active ? 'chevron circle right' : 'chevron circle left'} />
         </button>
         <Logo />
-        <UsersBox />
+        <UsersBox connected={connected} />
         <Parameters
           toggleDate={toggleDate}
           showDate={date}
@@ -44,6 +46,7 @@ function App() {
           clickColorGrey={clickColorGrey}
           clickColorRed={clickColorRed}
           clickColorNight={clickColorNight}
+          isConnected={isConnected}
         />
       </div>
     </div>

@@ -2,8 +2,10 @@ import React from 'react';
 import './Parameters.css';
 import Tool from './Tools/Tool';
 import Info from './Tools/Info';
+import Login from './Tools/Login/Login';
 
 function Parameters(props) {
+  
   return (
     <div className='Parameters' >
       <Tool 
@@ -16,6 +18,7 @@ function Parameters(props) {
         clickColorRed={props.clickColorRed}
         clickColorNight={props.clickColorNight} />
       <Info />
+      <Login isConnected={props.isConnected} />
     </div>
   )
 }

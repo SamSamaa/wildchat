@@ -7,10 +7,19 @@ import './Feed.css';
 
 function Feed(props) {
   const [messages, setMessages] = useState([]);
+  const [systMsg, setSystMsg] = useState({});
+
+  useEffect(() => {
+    if (props.connected === false){
+      setMessages([]);
+    }
+  }, [props])
 
   Client.receivedNewUser(data => {
     setMessages(data.history);
   });
+
+  Client.receiveSystMsg((data => setSystMsg(data)));
 
   // see client.js file for explanations
   useEffect(() => {
@@ -28,10 +37,6 @@ function Feed(props) {
     document.getElementById('bottom').scrollIntoView({ behavior: 'smooth' });
   });
 
-  const [systMsg, setSystMsg] = useState({});
-  
-  Client.receiveSystMsg((data => setSystMsg(data)));
-
   return (
     <List className="Feed">
       <List.Item>
@@ -39,7 +44,7 @@ function Feed(props) {
       </List.Item>
       {messages.map((message, index) => {
         return (
-          <List.Item key={index}><UserMsg name={message.name} message={message.message} date={message.date} showDate={props.showDate} /></List.Item> //we pass parameters name and message to child component UserMsg
+          <List.Item key={index}><UserMsg user={message.profile} message={message.message} date={message.date} showDate={props.showDate} /></List.Item> //we pass parameters name and message to child component UserMsg
         );
       })}
          
