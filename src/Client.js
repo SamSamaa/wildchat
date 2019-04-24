@@ -37,19 +37,20 @@ export const Client = {
     });
   },
 
-  sendPrivateMessage(message, name, id) {
+  sendPrivateMessage(message, name, idEmet, idTo) {
     socket.emit('SEND_PRIVATE_MESSAGE', {
       message: message,
       name: name,
-      id: id
+      idEmet: idEmet,
+      idTo: idTo
     });
   },
 
-  receivePrivateMessage(data){
-    socket.on('PRIVATE_MESSAGE', data);
+  receivePrivateMessage(handlePrivateMessage){
+    socket.on('PRIVATE_MESSAGE', handlePrivateMessage);
   },
 
-  receivePrivateMessageOff(data){
-    socket.off('PRIVATE_MESSAGE', data);
+  receivePrivateMessageOff(handlePrivateMessage){
+    socket.off('PRIVATE_MESSAGE', handlePrivateMessage);
   }
 }

@@ -4,7 +4,7 @@ let users = [];
 let messages = [];
 let history = [];
 
-let names = ['Gilbert', 'Marmoude', 'Sasuke', 'Robert', 'Yves', 'Gérard', 'Hubert', 'Eude', 'Boubakar', 'Claude', 'Jacques', 'Guy', 'Marcel', 'José'];
+let names = ['Gilbert', 'Marmoude', 'Sasuke', 'Robert', 'Yves', 'Kévin', 'Hubert', 'Eude', 'Boubakar', 'Claude', 'Jacques', 'Guy', 'Julio', 'José'];
 const randomName = names => names[Math.floor(Math.random() * names.length)];
 const randomNumber = () => Math.ceil(Math.random() * 9);
 
@@ -40,7 +40,8 @@ io.sockets.on('connection', (socket) => {
   //PrivateMsg
   socket.on('SEND_PRIVATE_MESSAGE', (data) => {
     console.log(data);
-    io.to(data.id).emit('PRIVATE_MESSAGE', data.message);
+    io.to(data.idTo).emit('PRIVATE_MESSAGE', data);
+    io.to(data.idEmet).emit('PRIVATE_MESSAGE', data);
   })
 
   socket.on('disconnect', () => {
