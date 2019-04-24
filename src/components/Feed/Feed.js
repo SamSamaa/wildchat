@@ -5,8 +5,14 @@ import { List } from 'semantic-ui-react';
 import './Feed.css';
 
 
-function Feed() {
+function Feed(props) {
   const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    if (props.connected === false){
+      setMessages([]);
+    }
+  }, [props])
 
   Client.receivedNewUser(data => {
     setMessages(data.history);
@@ -24,6 +30,8 @@ function Feed() {
   const addMessage = (data) => {setMessages([...messages, data]);
   };
 
+
+  
   useEffect(() => {
     document.getElementById('bottom').scrollIntoView({ behavior: 'smooth' });
   });

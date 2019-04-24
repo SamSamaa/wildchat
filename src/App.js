@@ -18,7 +18,7 @@ function App() {
   return (
     <div className='App'>
       <div className='chat'>
-        <Feed />
+        <Feed connected={connected} />
         <InputMsg connected={connected}/>
       </div>
       <div className={'infos' + (active ? ' active' : ' inactive')} >
@@ -26,7 +26,7 @@ function App() {
           <Icon name={active ? 'chevron circle right' : 'chevron circle left'} />
         </button>
         <Logo />
-        <UsersBox />
+        <UsersBox connected={connected}/>
         <Parameters isConnected={isConnected} />
       </div>
     </div>
