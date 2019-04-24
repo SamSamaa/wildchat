@@ -4,12 +4,13 @@ import Tool from './Tools/Tool';
 import Info from './Tools/Info';
 import Login from './Tools/Login/Login';
 
-function Parameters() {
+function Parameters(props) {
+  
   return (
     <div className='Parameters' >
       <Tool />
       <Info />
-      <Login />
+      <Login isConnected={props.isConnected} />
     </div>
   )
 }

@@ -6,3 +6,10 @@
   align-items: center;
   justify-content: center;
 }
+.MyProfile h2{
+  margin : 0;
+}
+
+.MyProfile img {
+  width : 6vh;
+}

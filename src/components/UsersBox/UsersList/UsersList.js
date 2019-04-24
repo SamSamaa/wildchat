@@ -10,7 +10,7 @@ function UsersList() {
   
   useEffect(() => {
     Client.receivedNewConnection((data) => setUsers(data));
-    Client.receiveDisconnection((data) => setUsers(data));
+    Client.receiveDisconnection((data) => setUsers(data.users));
   }, []); // = componentDidMount
 
 
@@ -18,7 +18,7 @@ function UsersList() {
     <List className='UsersList'>
       {
         users.map((user, index) => {
-          return <List.Item key={index} ><User name={user.name} /></List.Item>
+          return <List.Item key={index} ><User user={user} /></List.Item>
         })
       }
     </List>

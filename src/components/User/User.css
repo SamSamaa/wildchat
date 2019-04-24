@@ -1,0 +1,10 @@
+img {
+  width: 3vh;
+  margin-right: 1vh;
+  border-radius: 50%;
+}
+
+.row{
+  display : flex;
+  align-items: center;
+}

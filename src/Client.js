@@ -1,9 +1,9 @@
 import { socket } from './Socket';
 
 export const Client = {
-  sendUsername(username){
-    console.log(username + 'client')
-    socket.emit('SEND_USERNAME', username);
+    sendGoogleUser(newGoogleUser){
+    console.log(newGoogleUser.username + 'client')
+    socket.emit('SEND_NEW_GOOGLE_USER', newGoogleUser);
   },
 
   //method to listen new connection form server, data = id of my connection and users array (not working well)
@@ -34,10 +34,10 @@ export const Client = {
   },
 
   //method to emit message to server, used in feed component 
-  sendMessageEmit(message, name) {
+  sendMessageEmit(message, profile) {
     socket.emit('SEND_MESSAGE', {
       message: message,
-      name: name
+      profile: profile
     });
   },
 

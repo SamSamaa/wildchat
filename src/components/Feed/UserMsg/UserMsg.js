@@ -9,7 +9,9 @@ function UserMsg(props) {
   return (
     // we receive props.name from Feed and "transform" it in name to send to child component User
     // we receive props.message from Feed and "transform" it in message to send to child component Msg
-    <Message compact className='msg' ><p className='msg'><User name={props.name} /> <Msg message={props.message} date={props.date} /></p></Message>
+    <div className='d-flex flex-row'>
+      <Message compact className='msg' ><p className='msg'><User user={props.user} /> <Msg message={props.message} date={props.date} /></p></Message>
+    </div>
   );
 }
 

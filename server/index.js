@@ -10,25 +10,22 @@ io.sockets.on('connection', (socket) => {
     id: socket.id,
     name : ''
   }
-console.log(user)
   history = messages
   while (history.length > 5){
     history.splice(0,1);
   };
 
-  socket.on('SEND_USERNAME', (username) => {
+  socket.on('SEND_NEW_GOOGLE_USER', (newGoogleUser) => {
     user = {
       id: socket.id,
-      name :username
+      name : newGoogleUser.username,
+      profilPic : newGoogleUser.profilPic
     }
     users = [...users, user];
 
     socket.emit('NEW_USER', {user, history});
     io.emit('NEW_CONNECTION', users);
   });
-  console.log(users)
- 
-  console.log(history);
 
   //when message arrive from client, server resend the message to all users
   socket.on('SEND_MESSAGE', (data) => {
@@ -36,31 +33,23 @@ console.log(user)
     
     // Ajout de la date
     data.date = new Date();
-    console.log(data);
     io.emit('RECEIVE_MESSAGE', data);
   });
 
   socket.on('disconnect', () => {
-    console.log(user.name + ' disconnect');
 
     users = users.filter(function (u) {
       return u.id !== user.id;
     });
 
-    io.emit('NEW_DISCONNECT', users);
-    console.log(users);
+    io.emit('NEW_DISCONNECT', {users, user} );
   });
   socket.on('SEND_DISCONNECTION', (user) => {
-    console.log(user + 'server');
     users = users.filter(function (u) {
       return u.id !== user;
     });
-
-    io.emit('NEW_DISCONNECT', users);
-    console.log(users);
+    io.emit('NEW_DISCONNECT', {users, user} );
   });
-
 });
-
 
 io.listen(8888);

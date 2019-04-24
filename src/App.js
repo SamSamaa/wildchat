@@ -10,15 +10,16 @@ import './App.css';
 function App() {
 
   const [active, toggleActive] = useState(false);
+  const [connected, setConnected] = useState(false);
 
+  const isConnected = (connected) => {setConnected(connected)}
   const toggleUsers = () => toggleActive(!active);
-
-
+  
   return (
     <div className='App'>
       <div className='chat'>
         <Feed />
-        <InputMsg />
+        <InputMsg connected={connected}/>
       </div>
       <div className={'infos' + (active ? ' active' : ' inactive')} >
         <button className='toggle' onClick={toggleUsers}>
@@ -26,7 +27,7 @@ function App() {
         </button>
         <Logo />
         <UsersBox />
-        <Parameters />
+        <Parameters isConnected={isConnected} />
       </div>
     </div>
   );

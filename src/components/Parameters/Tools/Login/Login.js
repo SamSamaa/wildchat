@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GoogleLogin from 'react-google-login';
 import { Icon, Modal } from 'semantic-ui-react';
 import { Client } from '../../../../Client';
 
-function Login() {
+function Login(props) {
   const [open, setOpen] = useState(false);
   const [dimmer, setDimmer] = useState(true);
   const [connected, setConnected] = useState(false);
   const [user, setUser] = useState('');
-  let username = '';
+  let newGoogleUser = {};
 
   const show = () => {
-    setConnected(true);
     setOpen(true);
     setDimmer('blurring');
   };
@@ -22,24 +21,31 @@ function Login() {
   };
 
   const responseGoogle = (response) => {
-    console.log(response)
-    username = response.profileObj.givenName + ' ' + response.profileObj.familyName
-    //chemin pour acceder à l'icone: response.profileObj.imageURL
+    newGoogleUser = {
+      username: response.profileObj.givenName + ' ' + response.profileObj.familyName,
+      profilPic: response.profileObj.imageUrl
+    }
     if (!localStorage.getItem('id_token') || localStorage.getItem('id_token') !== response.tokenId) {
       localStorage.setItem('id_token', response.tokenId);
-      Client.sendUsername(username);
+      Client.sendGoogleUser(newGoogleUser);
+      response && setConnected(true);
+      close();
     } else {
       console.log('same user')
     };
   }
 
   Client.receivedNewUser(data => setUser(data.user.id));
-  
+
   const disconnectGoogle = () => {
     localStorage.removeItem('id_token');
     Client.sendDisconnection(user);
-    
+    setConnected(false);
   }
+
+  useEffect(() => {
+      props.isConnected(connected);
+  }, [connected])
 
   return (
     <div className='Login'>
@@ -47,7 +53,7 @@ function Login() {
         <Icon className='iconHover' onClick={disconnectGoogle} name='sign-out' size='big' />
         : <Icon className='iconHover' onClick={show} name='sign-in' size='big' />}
 
-      <Modal size='tiny' dimmer={dimmer} open={open} onClose={close} className='modalMenu'>
+      <Modal size='tiny' dimmer={dimmer} open={open} onClose={close} closeIcon className='modalMenu'>
         <Modal.Content>
           <GoogleLogin
             clientId="543165394107-pun2i8uuha0cmat6n5bq8qtc87njp5vu.apps.googleusercontent.com"
