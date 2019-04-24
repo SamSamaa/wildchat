@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Feed from './components/Feed/Feed';
 import InputMsg from './components/InputMsg/InputMsg';
 import Logo from './components/Logo/Logo';
@@ -7,7 +7,7 @@ import Parameters from './components/Parameters/Parameters';
 import { Icon } from 'semantic-ui-react';
 import './App.css';
 
-function App(props) {
+function App() {
 
   const [active, toggleActive] = useState(false);
   const [selectedUser, setSelectedUser] = useState('');
@@ -17,10 +17,6 @@ function App(props) {
   const atUser = (user) => {
     setSelectedUser(user);
   }
-
-  useEffect(() => {
-    console.log(selectedUser);
-  }, [selectedUser])
 
   return (
     <div className='App'>
@@ -33,7 +29,7 @@ function App(props) {
           <Icon name={active ? 'chevron circle right' : 'chevron circle left'} />
         </button>
         <Logo />
-        <UsersBox atUser={atUser} userName={props.name}/>
+        <UsersBox atUser={atUser}/>
         <Parameters />
       </div>
     </div>

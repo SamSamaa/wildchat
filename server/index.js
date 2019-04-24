@@ -3,6 +3,7 @@ let io = require('socket.io')();
 let users = [];
 let messages = [];
 let history = [];
+let selectUser = '';
 
 let names = ['Gilbert', 'Marmoude', 'Sasuke', 'Robert', 'Yves', 'Gérard', 'Hubert', 'Eude', 'Boubakar', 'Claude', 'Jacques', 'Guy', 'Marcel', 'José'];
 const randomName = names => names[Math.floor(Math.random() * names.length)];
@@ -38,7 +39,10 @@ io.sockets.on('connection', (socket) => {
   });
 
   //PrivateMsg
-  
+  let privateUser={selectUser}
+  socket.on('SEND_PRIVATE_MESSAGE', (data) => { 
+    io.to(privateUser).emit('PRIVATE_MESSAGE');
+  })
 
   socket.on('disconnect', () => {
     console.log(user.name + ' disconnect');
