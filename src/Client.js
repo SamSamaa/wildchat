@@ -44,7 +44,6 @@ export const Client = {
   sendDisconnection(user){
     socket.emit('SEND_DISCONNECTION', user);
   }
-
 }
 
 

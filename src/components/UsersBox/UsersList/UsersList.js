@@ -13,7 +13,6 @@ function UsersList(props) {
     Client.receiveDisconnection((data) => setUsers(data.users));
   }, []); // = componentDidMount
 
-
   return (
     <List className='UsersList'>
       {props.connected ?

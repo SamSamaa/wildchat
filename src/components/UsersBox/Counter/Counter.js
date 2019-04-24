@@ -2,7 +2,6 @@ import React, { useState, useEffect} from 'react';
 import { List } from 'semantic-ui-react';
 import { Client } from "../../../Client";
 
-
 function Counter(props) {
 
   const [users, setUsers] = useState([]);
@@ -14,7 +13,7 @@ function Counter(props) {
 
 return (
     <List className='Counter'>
-      Users Online : {props.connected ? users.length : '0'}
+      Users Online : {props.connected ? users.length : ''}
     </List>
   )
 }
