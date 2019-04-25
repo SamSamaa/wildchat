@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Client } from "../../Client";
 import { Form } from 'semantic-ui-react';
 import './InputMsg.css';
@@ -9,34 +9,36 @@ const InputMsg = (props) => {
   const [name, setName] = useState('');
   const [idEmet, setIdEmet] = useState('');
 
+  const isInitialMount = useRef(true);
+
 
   Client.receivedNewUser((data) => {
-    setName(data.user.name )
-    setIdEmet(data.user.id )});
+    setName(data.user.name)
+    setIdEmet(data.user.id)
+  });
   //method to emit message to server via client and to delete message from the input message box
   const sendMessage = () => {
-    if (props.selectUser !== '') {
-      console.log('private')
-      setMessage(`@${props.selectUser.user} `);
-      Client.sendPrivateMessage(message, name, idEmet, props.selectUser.id);
-    }else{
-      console.log('public')
-      Client.sendMessageEmit(message, name);
-      setMessage('');
-    };
+    // let arrayMsg = message.split('')
+    // if (arrayMsg.length > 1) {
+      if (props.selectUser === '' || props.selectUser === undefined) {
+        console.log('public')
+        Client.sendMessageEmit(message, name);
+        setMessage('');
+      } else {
+        console.log('private', props.selectUser.user);
+        setMessage(`@${props.selectUser.user} `);
+        Client.sendPrivateMessage(message, name, idEmet, props.selectUser.id);
+      };
+    // }
   }
 
   useEffect(() => {
-    
-    sendMessage();
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      sendMessage();
+    }
   }, [props.selectUser])
-
-  // useEffect(() => {
-  //   if (props.selectUser !== '') {
-  //     Client.sendPrivateMessage(message, name, id);
-  //     setMessage(`@${props.selectUser.user} `)
-  //   };
-  // }, [props.selectUser])
 
   return (
     <Form className='InputMsg' onSubmit={() => sendMessage()}>

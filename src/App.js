@@ -11,6 +11,7 @@ function App() {
 
   const [active, toggleActive] = useState(false);
   const [selectedUser, setSelectedUser] = useState('');
+  // const [messageSent, setMessageSent] = useState(false);
 
   const toggleUsers = () => toggleActive(!active);
 

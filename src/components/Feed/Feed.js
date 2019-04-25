@@ -8,7 +8,6 @@ import InputMsg from "../InputMsg/InputMsg";
 
 function Feed(props) {
   const [messages, setMessages] = useState([]);
-  const [privateMessages, setPrivateMessages] = useState([]);
 
   Client.receivedNewUser(data => {
     setMessages(data.history);
