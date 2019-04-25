@@ -33,24 +33,18 @@ function Feed(props) {
     //   console.log(data)
     // })
     useEffect(() => {
-      const handlePrivateMessage = (data) => { addPrivateMessage(data) };
+      const handlePrivateMessage = (data) => { addMessage(data) };
       Client.receivePrivateMessage(handlePrivateMessage);
       return () => {
         Client.receivePrivateMessageOff(handlePrivateMessage);
       }
-    }, [privateMessages]);
-    console.log(privateMessages)
-
-  const addPrivateMessage = (data) => {
-    setPrivateMessages([...privateMessages, data]);
-  };
+    }, [messages]);
 
   useEffect(() => {
     document.getElementById('bottom').scrollIntoView({ behavior: 'smooth' });
   });
 
   return (
-    <div>
     <List className="Feed">
       {messages.map((message, index) => {
         return (
@@ -65,29 +59,8 @@ function Feed(props) {
         );
       })}
 
-      {privateMessages.map((message, index) => {
-        return (
-          <List.Item key={index}>
-            <UserMsg
-              atUser={props.atUser}
-              name={message.name}
-              message={message.message}
-              date={message.date}
-            />
-          </List.Item> //we pass parameters name and message to child component UserMsg
-        );
-      })
-      }
       <div id='bottom'></div>
       </List>
-      {/* <InputMsg
-      atUser={props.atUser}
-      name={message.name}
-      message={message.message}
-      date={message.date}
-    /> */}
-
-  </div>
   )
 }
 
