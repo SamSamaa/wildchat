@@ -30,15 +30,8 @@ function Feed() {
     document.getElementById('bottom').scrollIntoView({ behavior: 'smooth' });
   });
 
-  const [systMsg, setSystMsg] = useState({});
-  
-  Client.receiveSystMsg((data => setSystMsg(data)));
-
   return (
     <List className="Feed">
-      <List.Item>
-        <div id="SystemeMessage"> {systMsg.user ? systMsg.user.name : null} {systMsg.statut ===0? " is disconnected" : null} {systMsg.statut ===1? " is connected" : null} </div>
-      </List.Item>
       {messages.map((message, index) => {
         return (
           <div>

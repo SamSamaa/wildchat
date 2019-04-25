@@ -3,3 +3,10 @@
   padding: 10px !important;
   background-color: var(--bg-color);
 }
+
+#SystemeMessage {
+  font-style:italic;
+  color:grey;
+  margin-right:12px;
+  text-align: right;
+}

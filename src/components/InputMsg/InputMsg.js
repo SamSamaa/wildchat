@@ -19,10 +19,19 @@ const InputMsg = () => {
     setMessage('');
   }
 
+  const [systMsg, setSystMsg] = useState({});
+  
+  Client.receiveSystMsg((data => setSystMsg(data)));
+
   return (
-    <Form className='InputMsg' onSubmit={() => sendMessage()}>
-      <Form.Input action='Send' placeholder='Type your message...' value={message} onChange={(e) => { setMessage(e.target.value) }} />
-    </Form>
+    <div>
+      <Form className='InputMsg' onSubmit={() => sendMessage()}>
+        <Form.Input action='Send' placeholder='Type your message...' value={message} onChange={(e) => { setMessage(e.target.value) }} />
+      </Form>
+      <div>
+      <div id="SystemeMessage"> {systMsg.user ? systMsg.user.name : null} {systMsg.statut ===0? " is disconnected" : null} {systMsg.statut ===1? " is connected" : null} </div>
+      </div>
+    </div>
   )
 }
 
