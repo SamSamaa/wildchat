@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import GoogleLogin from 'react-google-login';
 import { Icon, Modal } from 'semantic-ui-react';
 import { Client } from '../../../../Client';
+
+export const ConnectedCtx = createContext(false);
 
 function Login(props) {
   const [open, setOpen] = useState(false);
@@ -44,26 +46,28 @@ function Login(props) {
   }
 
   useEffect(() => {
-      props.isConnected(connected);
+    props.isConnected(connected);
   }, [connected])
 
   return (
     <div className='Login'>
-      {connected ?
-        <Icon className='iconHover' onClick={disconnectGoogle} name='sign-out' size='big' />
-        : <Icon className='iconHover' onClick={show} name='sign-in' size='big' />}
+    {console.log(connected+'context login')}
+      <ConnectedCtx.Provider value={connected}>
+        {connected ?
+          <Icon className='iconHover' onClick={disconnectGoogle} name='sign-out' size='big' />
+          : <Icon className='iconHover' onClick={show} name='sign-in' size='big' />}
 
-      <Modal size='tiny' dimmer={dimmer} open={open} onClose={close} closeIcon className='modalMenu'>
-        <Modal.Content>
-          <GoogleLogin
-            clientId="543165394107-pun2i8uuha0cmat6n5bq8qtc87njp5vu.apps.googleusercontent.com"
-            buttonText="LOGIN WITH GOOGLE"
-            onSuccess={responseGoogle}
-            onFailure={(err) => console.log(err)}
-          />
-        </Modal.Content>
-      </Modal>
-
+        <Modal size='tiny' dimmer={dimmer} open={open} onClose={close} closeIcon className='modalMenu'>
+          <Modal.Content>
+            <GoogleLogin
+              clientId="543165394107-pun2i8uuha0cmat6n5bq8qtc87njp5vu.apps.googleusercontent.com"
+              buttonText="LOGIN WITH GOOGLE"
+              onSuccess={responseGoogle}
+              onFailure={(err) => console.log(err)}
+            />
+          </Modal.Content>
+        </Modal>
+      </ConnectedCtx.Provider>
     </div>
   );
 }

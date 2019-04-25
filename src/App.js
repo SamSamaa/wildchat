@@ -36,7 +36,7 @@ function App() {
           <Icon name={active ? 'chevron circle right' : 'chevron circle left'} />
         </button>
         <Logo />
-        <UsersBox connected={connected} />
+        <UsersBox />
         <Parameters
           toggleDate={toggleDate}
           showDate={date}

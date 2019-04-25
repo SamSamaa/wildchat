@@ -8,7 +8,7 @@ function UsersBox(props) {
   return (
     <div className='UsersBox'>
       <MyProfile />
-      <Counter connected={props.connected}/>
+      <Counter />
       <UsersList connected={props.connected}/>
     </div>
   )
