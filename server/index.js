@@ -21,38 +21,32 @@ io.sockets.on('connection', (socket) => {
     history.splice(0, 1);
   };
 
-  console.log(history);
-
   //server send id connection and users array
   socket.emit('NEW_USER', { user, history });
   io.emit('NEW_CONNECTION', users);
 
   //when message arrive from client, server resend the message to all users
   socket.on('SEND_MESSAGE', (data) => {
-    messages = [...messages, data];
+    const message = data;
+    if (message.privateMessage === true) {
+      console.log(data);
+      io.to(data.idTo).emit('RECEIVE_MESSAGE', data);
+      io.to(data.idEmet).emit('RECEIVE_MESSAGE', data);
+    } else {
+      messages = [...messages, data];
 
-    // Ajout de la date
-    data.date = new Date();
-    console.log(data);
-    io.emit('RECEIVE_MESSAGE', data);
+      // Ajout de la date
+      data.date = new Date();
+      io.emit('RECEIVE_MESSAGE', data);
+    }
   });
 
-  //PrivateMsg
-  socket.on('SEND_PRIVATE_MESSAGE', (data) => {
-    console.log(data);
-    io.to(data.idTo).emit('PRIVATE_MESSAGE', data);
-    io.to(data.idEmet).emit('PRIVATE_MESSAGE', data);
-  })
-
   socket.on('disconnect', () => {
-    console.log(user.name + ' disconnect');
-
     users = users.filter(function (u) {
       return u.id !== user.id;
     });
 
     io.emit('NEW_DISCONNECT', users);
-    console.log(users)
   });
 
 });

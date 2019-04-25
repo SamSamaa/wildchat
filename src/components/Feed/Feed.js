@@ -13,7 +13,6 @@ function Feed(props) {
     setMessages(data.history);
   });
 
-
   // see client.js file for explanations
   useEffect(() => {
       const handleMessage = (data) => { addMessage(data) };
@@ -27,18 +26,6 @@ function Feed(props) {
       setMessages([...messages, data]);
     };
   
-    // Client.receivePrivateMessage((data) => {
-    //   // setPrivateMessages(data)
-    //   console.log(data)
-    // })
-    useEffect(() => {
-      const handlePrivateMessage = (data) => { addMessage(data) };
-      Client.receivePrivateMessage(handlePrivateMessage);
-      return () => {
-        Client.receivePrivateMessageOff(handlePrivateMessage);
-      }
-    }, [messages]);
-
   useEffect(() => {
     document.getElementById('bottom').scrollIntoView({ behavior: 'smooth' });
   });
@@ -51,6 +38,7 @@ function Feed(props) {
             <UserMsg
               atUser={props.atUser}
               name={message.name}
+              id={message.idEmet}
               message={message.message}
               date={message.date}
             />

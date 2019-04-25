@@ -29,28 +29,21 @@ export const Client = {
     socket.off('RECEIVE_MESSAGE', handleMessage);
   },
 
-  //method to emit message to server, used in feed component 
-  sendMessageEmit(message, name) {
-    socket.emit('SEND_MESSAGE', {
-      message: message,
-      name: name
-    });
-  },
+  // //method to emit message to server, used in feed component 
+  // sendMessageEmit(message, name) {
+  //   socket.emit('SEND_MESSAGE', {
+  //     message: message,
+  //     name: name
+  //   });
+  // },
 
-  sendPrivateMessage(message, name, idEmet, idTo) {
-    socket.emit('SEND_PRIVATE_MESSAGE', {
+  sendMessageEmit(message, name, idEmet, idTo, privateMessage) {
+    socket.emit('SEND_MESSAGE', {
       message: message,
       name: name,
       idEmet: idEmet,
-      idTo: idTo
+      idTo: idTo,
+      privateMessage: privateMessage
     });
-  },
-
-  receivePrivateMessage(handlePrivateMessage){
-    socket.on('PRIVATE_MESSAGE', handlePrivateMessage);
-  },
-
-  receivePrivateMessageOff(handlePrivateMessage){
-    socket.off('PRIVATE_MESSAGE', handlePrivateMessage);
   }
 }

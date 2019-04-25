@@ -11,7 +11,7 @@ function UserMsg(props) {
     // we receive props.message from Feed and "transform" it in message to send to child component Msg
     <Message compact className='msg' >
       <p className='msg'>
-        <User atUser={props.atUser} name={props.name} /> 
+        <User atUser={props.atUser} name={props.name} id={props.id} /> 
         <Msg message={props.message} date={props.date} />
       </p>
     </Message>

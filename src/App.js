@@ -17,6 +17,7 @@ function App() {
 
   const atUser = (user, id) => {
     setSelectedUser({user, id});
+    console.log(selectedUser + 'app')
   }
 
   return (

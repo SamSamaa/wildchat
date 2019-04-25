@@ -8,8 +8,9 @@ const InputMsg = (props) => {
   const [message, setMessage] = useState('');
   const [name, setName] = useState('');
   const [idEmet, setIdEmet] = useState('');
-
-  const isInitialMount = useRef(true);
+  const [value, setValue] = useState('');
+  const [selectedUser, setSelectedUser] = useState('');
+  const [privateMessage, setPrivateMessage] = useState(false);
 
 
   Client.receivedNewUser((data) => {
@@ -17,26 +18,22 @@ const InputMsg = (props) => {
     setIdEmet(data.user.id)
   });
   //method to emit message to server via client and to delete message from the input message box
+
   const sendMessage = () => {
-    // let arrayMsg = message.split('')
-    // if (arrayMsg.length > 1) {
-      if (props.selectUser === '' || props.selectUser === undefined) {
-        console.log('public')
-        Client.sendMessageEmit(message, name);
-        setMessage('');
-      } else {
-        console.log('private', props.selectUser.user);
-        setMessage(`@${props.selectUser.user} `);
-        Client.sendPrivateMessage(message, name, idEmet, props.selectUser.id);
-      };
-    // }
+    Client.sendMessageEmit(message, name, idEmet, selectedUser.id, privateMessage);
+    setMessage('');
+    setSelectedUser('');
+    setPrivateMessage(false);
+    setValue('');
   }
 
+
   useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-    } else {
-      sendMessage();
+    setSelectedUser(props.selectUser);
+    console.log(selectedUser)
+    if (selectedUser !== '') {
+      setValue(`@${selectedUser.user} `);
+      setPrivateMessage(true);
     }
   }, [props.selectUser])
 
@@ -45,8 +42,8 @@ const InputMsg = (props) => {
       <Form.Input
         action='Send'
         placeholder='Type your message...'
-        value={message}
-        onChange={(e) => { setMessage(e.target.value) }}
+        value={value}
+        onChange={(e) => { setValue(e.target.value); setMessage(e.target.value) }}
       />
     </Form>
   )
