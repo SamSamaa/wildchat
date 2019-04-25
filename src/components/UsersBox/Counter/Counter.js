@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { ConnectedCtx } from '../../../components/Parameters/Tools/Login/Login';
+import { ConnectedCtx } from '../../../App';
 import { List } from 'semantic-ui-react';
 import { Client } from "../../../Client";
 
 function Counter() {
 
   const [users, setUsers] = useState([]);
-  const connected = useContext(ConnectedCtx);
+  const [connected, setConnected] = useContext(ConnectedCtx);
   console.log(connected + 'context counter')
 
   useEffect(() => {

@@ -1,14 +1,13 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ConnectedCtx } from '../../../../App';
 import GoogleLogin from 'react-google-login';
 import { Icon, Modal } from 'semantic-ui-react';
 import { Client } from '../../../../Client';
 
-export const ConnectedCtx = createContext(false);
-
 function Login(props) {
   const [open, setOpen] = useState(false);
   const [dimmer, setDimmer] = useState(true);
-  const [connected, setConnected] = useState(false);
+  const [connected, setConnected] = useContext(ConnectedCtx);
   const [user, setUser] = useState('');
   let newGoogleUser = {};
 
@@ -51,8 +50,7 @@ function Login(props) {
 
   return (
     <div className='Login'>
-    {console.log(connected+'context login')}
-      <ConnectedCtx.Provider value={connected}>
+      {console.log(connected + 'context login')}
         {connected ?
           <Icon className='iconHover' onClick={disconnectGoogle} name='sign-out' size='big' />
           : <Icon className='iconHover' onClick={show} name='sign-in' size='big' />}
@@ -67,7 +65,6 @@ function Login(props) {
             />
           </Modal.Content>
         </Modal>
-      </ConnectedCtx.Provider>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, createContext  } from 'react';
 import Feed from './components/Feed/Feed';
 import InputMsg from './components/InputMsg/InputMsg';
 import Logo from './components/Logo/Logo';
@@ -6,6 +6,8 @@ import UsersBox from './components/UsersBox/UsersBox';
 import Parameters from './components/Parameters/Parameters';
 import { Icon } from 'semantic-ui-react';
 import './App.css';
+
+export const ConnectedCtx = createContext(false);
 
 function App() {
 
@@ -26,6 +28,7 @@ function App() {
   const toggleUsers = () => toggleActive(!active);
   
   return (
+    <ConnectedCtx.Provider value={[connected, setConnected]}>
     <div className={'App' + ' ' + color}>
       <div className='chat'>
         <Feed showDate={date} connected={connected}/>
@@ -50,6 +53,7 @@ function App() {
         />
       </div>
     </div>
+    </ConnectedCtx.Provider>
   );
 }
 
