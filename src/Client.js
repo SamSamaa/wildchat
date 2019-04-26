@@ -1,5 +1,4 @@
 import { socket } from './Socket';
-import MyProfile from './components/UsersBox/MyProfile/MyProfile';
 
 export const Client = {
     sendGoogleUser(newGoogleUser){
@@ -41,7 +40,6 @@ export const Client = {
   sendDisconnection(user){
     socket.emit('SEND_DISCONNECTION', user);
   },
-
 
   sendMessageEmit(message, user, idTo, privateMessage) {
     socket.emit('SEND_MESSAGE', {

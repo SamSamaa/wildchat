@@ -16,16 +16,11 @@ function Login(props) {
     setDimmer('blurring');
   };
 
-  // const close = () => {
-  //   setOpen(false);
-  //   setDimmer(true);
-  // };
-
   const responseGoogle = (response) => {
     newGoogleUser = {
       username: response.profileObj.givenName + ' ' + response.profileObj.familyName,
       profilePic: response.profileObj.imageUrl
-    }
+    };
     if (!localStorage.getItem('id_token') || localStorage.getItem('id_token') !== response.tokenId) {
       localStorage.setItem('id_token', response.tokenId);
       Client.sendGoogleUser(newGoogleUser);
@@ -33,7 +28,7 @@ function Login(props) {
       setOpen(false);
       setDimmer(true);
     } else {
-      console.log('same user')
+      console.log('same user');
     };
   }
 
@@ -52,7 +47,7 @@ function Login(props) {
 
   useEffect(() => {
     show();
-  }, []);
+  }, [])
 
   return (
     <div>
@@ -78,7 +73,7 @@ function Login(props) {
         </Modal>
       </div>
     </div>
-  );
+  )
 }
 
 export default Login;

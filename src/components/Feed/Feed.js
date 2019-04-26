@@ -27,15 +27,15 @@ function Feed(props) {
       return () => {
         Client.receiveMessageOff(handleMessage);
       }
-    }, [messages]);
-console.log(messages)
+    }, [messages])
+
     const addMessage = (data) => {
       setMessages([...messages, data]);
     };
   
   useEffect(() => {
     document.getElementById('bottom').scrollIntoView({ behavior: 'smooth' });
-  });
+  })
 
   return (
     <List className="Feed">
@@ -52,7 +52,6 @@ console.log(messages)
           </List.Item> //we pass parameters name and message to child component UserMsg
         );
       })}
-
       <div id='bottom'></div>
       </List>
   )

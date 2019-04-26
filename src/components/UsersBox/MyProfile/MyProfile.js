@@ -11,7 +11,7 @@ function MyProfile() {
     if (profile.id === data.user.idUser) {
       setProfile({})
     }
-  })
+  });
 
   return (
     <div className='MyProfile'>

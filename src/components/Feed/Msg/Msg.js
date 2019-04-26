@@ -2,7 +2,6 @@ import React from 'react'; //mise en forme message - enfant tout en bas
 import moment from 'moment';
 import 'moment/locale/fr';
 import ReactMarkdown from 'react-markdown';
-
 import './Msg.css';
 
 moment.locale('fr');
