@@ -1,0 +1,46 @@
+.loginMenu{
+  margin-left: -30% !important;
+  width: 80% !important;
+  height: 70% !important;
+}
+
+.welcome{
+  font-size: 20px;
+  background-color: #F76C6F;
+  color:white;
+  padding-top:5% !important;
+  padding-bottom:5% !important;
+  text-align: center !important;
+  font-weight: bold !important;
+}
+
+.infoConnection{
+  font-size: 18px;
+  text-align: center !important;
+  margin-bottom:40%;
+  margin-top:10%;
+}
+
+.googleConnection{
+  text-align: center !important;
+}
+
+@media screen and (min-width: 600px){
+
+  .loginMenu{
+    margin-left: -82% !important;
+    margin-right: 30% !important;
+    width: 70% !important;
+    height: 70% !important;
+  }
+
+  .welcome{
+    font-size: 200%;
+  }
+  
+  .infoConnection{
+    font-size: 150%;
+    margin-bottom:20%;
+  }
+  
+}

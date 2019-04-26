@@ -20,10 +20,16 @@ function Info() {
   return (
     <div>
       <Icon className='iconHover' onClick={show} name='info circle' size='big' />
-      <Modal dimmer={dimmer} open={open} onClose={close} className='modalMenu'>
+      <Modal dimmer={dimmer} open={open} onClose={close} closeIcon className='modalMenu'>
         <Modal.Header>Informations</Modal.Header>
         <Modal.Description>
-          <p>Application fait par: .......</p>
+        <p>Application faite par:</p>
+          <ul>
+            <li>Aurélia Roumesy</li>
+            <li>Béatrice de Montbeillard</li>
+            <li>Sam Adib Ghiassi</li>
+            <li>Julien Duhem</li>
+          </ul>
         </Modal.Description>
       </Modal>
     </div>

@@ -4,6 +4,10 @@
   font-size: .8em;
 }
 
+.mssgContainer {
+  margin-left: 4vh;
+}
+
 .mssg {
   max-width: inherit;
   word-break: break-all;

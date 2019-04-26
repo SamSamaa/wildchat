@@ -4,14 +4,40 @@
 
 .checkbox{
   margin-left: 9vw !important;
+  margin-top: 5px !important;
 }
 
 .listTime{
   padding-top: 1em !important;
 }
 
+.redIcon{
+  color: rgb(199, 80, 78) !important;
+}
+
+.violetIcon{
+  color:#F76C6F !important;
+}
+
+.blueIcon{
+  color:#2193b0 !important;
+}
+
+.greyIcon{
+  color:rgb(117, 117, 117) !important;
+}
+
+.greenIcon{
+  color:rgb(80, 122, 70) !important;
+}
+
+.nightIcon{
+  color:rgb(51, 51, 51) !important;
+}
+
 @media screen and (min-width: 600px){
   .checkbox{
     padding-left: 0 ;
+    margin-top:20px !important;
   }
 }

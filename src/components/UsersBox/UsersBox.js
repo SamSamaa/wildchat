@@ -4,12 +4,12 @@ import Counter from './Counter/Counter';
 import UsersList from './UsersList/UsersList';
 import './UsersBox.css';
 
-function UsersBox() {
+function UsersBox(props) {
   return (
     <div className='UsersBox'>
       <MyProfile />
-      <Counter />
-      <UsersList />
+      <Counter connected={props.connected}/>
+      <UsersList connected={props.connected} atUser={props.atUser}/>
     </div>
   )
 }

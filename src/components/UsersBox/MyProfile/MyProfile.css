@@ -5,4 +5,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: hidden;
+  max-width: inherit;
+  word-break: normal;
+  border: 15px solid;
+}
+.MyProfile h2{
+  margin : 0;
+}
+
+.MyProfile img {
+  width : 6vh;
 }
