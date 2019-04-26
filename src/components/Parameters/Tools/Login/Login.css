@@ -1,0 +1,44 @@
+.modalMenu{
+  margin-left: -20% !important;
+  width: 80% !important;
+  height: 70% !important;
+}
+
+.welcome{
+  font-size: 20px;
+  background-color: grey;
+  padding-top:5% !important;
+  padding-bottom:5% !important;
+  text-align: center !important;
+  font-weight: bold !important;
+}
+
+.infoConnection{
+  font-size: 18px;
+  text-align: center !important;
+  margin-bottom:40%;
+}
+
+.googleConnection{
+  text-align: center !important;
+}
+
+@media screen and (min-width: 600px){
+
+  .modalMenu{
+    margin-left: -50% !important;
+    margin-right: 30% !important;
+    width: 60% !important;
+    height: 70% !important;
+  }
+
+  .welcome{
+    font-size: 180%;
+  }
+  
+  .infoConnection{
+    font-size: 140%;
+    margin-bottom:20%;
+  }
+  
+}

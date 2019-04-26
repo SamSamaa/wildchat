@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import GoogleLogin from 'react-google-login';
 import { Icon, Modal } from 'semantic-ui-react';
 import { Client } from '../../../../Client';
+import './Login.css';
 
 function Login(props) {
   const [open, setOpen] = useState(false);
@@ -15,10 +16,10 @@ function Login(props) {
     setDimmer('blurring');
   };
 
-  const close = () => {
-    setOpen(false);
-    setDimmer(true);
-  };
+  // const close = () => {
+  //   setOpen(false);
+  //   setDimmer(true);
+  // };
 
   const responseGoogle = (response) => {
     newGoogleUser = {
@@ -29,7 +30,8 @@ function Login(props) {
       localStorage.setItem('id_token', response.tokenId);
       Client.sendGoogleUser(newGoogleUser);
       response && setConnected(true);
-      close();
+      setOpen(false);
+      setDimmer(true);
     } else {
       console.log('same user')
     };
@@ -41,29 +43,40 @@ function Login(props) {
     localStorage.removeItem('id_token');
     Client.sendDisconnection(user);
     setConnected(false);
+    show();
   }
 
   useEffect(() => {
       props.isConnected(connected);
   }, [connected])
 
+  useEffect(() => {
+    show();
+  }, []);
+
   return (
-    <div className='Login'>
-      {connected ?
-        <Icon className='iconHover' onClick={disconnectGoogle} name='sign-out' size='big' />
-        : <Icon className='iconHover' onClick={show} name='sign-in' size='big' />}
-
-      <Modal size='tiny' dimmer={dimmer} open={open} onClose={close} closeIcon className='modalMenu'>
-        <Modal.Content>
-          <GoogleLogin
-            clientId="543165394107-pun2i8uuha0cmat6n5bq8qtc87njp5vu.apps.googleusercontent.com"
-            buttonText="LOGIN WITH GOOGLE"
-            onSuccess={responseGoogle}
-            onFailure={(err) => console.log(err)}
-          />
-        </Modal.Content>
-      </Modal>
-
+    <div>
+      <div className='Login'>
+        {connected ?
+          <Icon className='iconHover' onClick={disconnectGoogle} name='sign-out' size='big' />
+          : <Icon className='iconHover' onClick={show} name='sign-in' size='big' />}
+      </div>
+      <div className="modalConnection">
+        <Modal size='tiny' dimmer={dimmer} open={open} className='modalMenu'>
+          <Modal.Content>
+            <p className="welcome">Bienvenue sur Wild Chat !</p>
+            <p className="infoConnection">Pour participer à la discussion, connecte-toi avec ton compte Google. </p>
+            <div className="googleConnection">
+            <GoogleLogin
+              clientId="543165394107-pun2i8uuha0cmat6n5bq8qtc87njp5vu.apps.googleusercontent.com"
+              buttonText="LOGIN WITH GOOGLE"
+              onSuccess={responseGoogle}
+              onFailure={(err) => console.log(err)}
+            />
+            </div>
+          </Modal.Content>
+        </Modal>
+      </div>
     </div>
   );
 }
