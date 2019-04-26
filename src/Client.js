@@ -1,8 +1,8 @@
 import { socket } from './Socket';
+import MyProfile from './components/UsersBox/MyProfile/MyProfile';
 
 export const Client = {
     sendGoogleUser(newGoogleUser){
-    console.log(newGoogleUser.username + 'client')
     socket.emit('SEND_NEW_GOOGLE_USER', newGoogleUser);
   },
 
@@ -37,17 +37,22 @@ export const Client = {
     socket.off('RECEIVE_MESSAGE', handleMessage);
   },
   //method to emit message to server, used in feed component 
-  sendMessageEmit(message, profile) {
-    socket.emit('SEND_MESSAGE', {
-      message: message,
-      profile: profile
-    });
-  },
 
   sendDisconnection(user){
     socket.emit('SEND_DISCONNECTION', user);
+  },
+
+
+  sendMessageEmit(message, user, idTo, privateMessage) {
+    socket.emit('SEND_MESSAGE', {
+      message: message,
+      user: {
+        name: user.name,
+        idUser: user.idUser,
+        profilePic: user.profilePic
+      },
+      idTo: idTo,
+      privateMessage: privateMessage
+    });
   }
 }
-
-
-

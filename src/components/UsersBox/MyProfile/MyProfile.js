@@ -6,16 +6,16 @@ function MyProfile() {
 
   const [profile, setProfile] = useState({});
 
-  Client.receivedNewUser(data => setProfile({ name: data.user.name, profilPic: data.user.profilPic, id: data.user.id }));
+  Client.receivedNewUser(data => setProfile({ name: data.user.name, profilePic: data.user.profilePic, id: data.user.idUser }));
   Client.receiveDisconnection(data => {
-    if (profile.id === data.user) {
+    if (profile.id === data.user.idUser) {
       setProfile({})
     }
   })
 
   return (
     <div className='MyProfile'>
-      <img src={profile.profilPic} alt=''/>
+      <img src={profile.profilePic} alt=''/>
       <h2>{profile.name}</h2>
     </div>
   )

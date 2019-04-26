@@ -7,19 +7,19 @@ let history = [];
 io.sockets.on('connection', (socket) => {
 
   let user = {
-    id: socket.id,
+    idUser: socket.id,
     name: ''
   }
   history = messages
-  while (history.length > 5) {
+  while (history.length > 500) {
     history.splice(0, 1);
   }
 
   socket.on('SEND_NEW_GOOGLE_USER', (newGoogleUser) => {
     user = {
-      id: socket.id,
+      idUser: socket.id,
       name: newGoogleUser.username,
-      profilPic: newGoogleUser.profilPic
+      profilePic: newGoogleUser.profilePic
     }
     users = [...users, user];
 
@@ -29,38 +29,45 @@ io.sockets.on('connection', (socket) => {
       statut: 1, // connected
       user: user
     });
-    console.log(user.name + ' connect');
 
-    io.emit('NEW_CONNECTION', users);
+    io.emit('NEW_CONNECTION', {users, user});
   });
 
   //when message arrive from client, server resend the message to all users
   socket.on('SEND_MESSAGE', (data) => {
-    messages = [...messages, data];
+    console.log(data)
+    const message = data;
+    if (message.privateMessage === true) {
+      io.to(data.idTo).emit('RECEIVE_MESSAGE', data);
+      io.to(data.user.idUser).emit('RECEIVE_MESSAGE', data);
+    } else {
+      messages = [...messages, data];
 
-    // Ajout de la date
-    data.date = new Date();
-    io.emit('RECEIVE_MESSAGE', data);
+      // Ajout de la date
+      data.date = new Date();
+      io.emit('RECEIVE_MESSAGE', data);
+    }
   });
 
   socket.on('disconnect', () => {
-
     users = users.filter(function (u) {
-      return u.id !== user.id;
+      return u.idUser !== user.idUser;
     });
     socket.broadcast.emit('SYST_MSG', {
       statut: 0, // disconnected
       user: user
     });
-    console.log(user.name + ' disconnect');
 
     io.emit('NEW_DISCONNECT', { users, user });
-    console.log(users);
   });
 
   socket.on('SEND_DISCONNECTION', (user) => {
     users = users.filter(function (u) {
-      return u.id !== user;
+      return u.idUser !== user.idUser;
+    });
+    socket.broadcast.emit('SYST_MSG', {
+      statut: 0, // disconnected
+      user: user
     });
     io.emit('NEW_DISCONNECT', { users, user });
   });

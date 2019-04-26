@@ -23,7 +23,7 @@ function Login(props) {
   const responseGoogle = (response) => {
     newGoogleUser = {
       username: response.profileObj.givenName + ' ' + response.profileObj.familyName,
-      profilPic: response.profileObj.imageUrl
+      profilePic: response.profileObj.imageUrl
     }
     if (!localStorage.getItem('id_token') || localStorage.getItem('id_token') !== response.tokenId) {
       localStorage.setItem('id_token', response.tokenId);
@@ -35,7 +35,7 @@ function Login(props) {
     };
   }
 
-  Client.receivedNewUser(data => setUser(data.user.id));
+  Client.receivedNewUser(data => setUser(data.user));
 
   const disconnectGoogle = () => {
     localStorage.removeItem('id_token');

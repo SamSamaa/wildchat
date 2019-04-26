@@ -3,7 +3,6 @@ import UserMsg from './UserMsg/UserMsg';
 import { Client } from "../../Client";
 import { List } from 'semantic-ui-react';
 import './Feed.css';
-// import SystemeMessage from "./SystemeMessage/SystemeMessage";
 
 function Feed(props) {
   const [messages, setMessages] = useState([]);
@@ -23,16 +22,17 @@ function Feed(props) {
 
   // see client.js file for explanations
   useEffect(() => {
-    const handleMessage = (data) => { addMessage(data) };
-    Client.receiveMessageOn(handleMessage);
-    return () => {
-      Client.receiveMessageOff(handleMessage);
+      const handleMessage = (data) => { addMessage(data) };
+      Client.receiveMessageOn(handleMessage);
+      return () => {
+        Client.receiveMessageOff(handleMessage);
+      }
+    }, [messages]);
+console.log(messages)
+    const addMessage = (data) => {
+      setMessages([...messages, data]);
     };
-  }, [messages]);
-
-  const addMessage = (data) => {setMessages([...messages, data]);
-  };
-
+  
   useEffect(() => {
     document.getElementById('bottom').scrollIntoView({ behavior: 'smooth' });
   });
@@ -44,12 +44,20 @@ function Feed(props) {
       </List.Item>
       {messages.map((message, index) => {
         return (
-          <List.Item key={index}><UserMsg user={message.profile} message={message.message} date={message.date} showDate={props.showDate} /></List.Item> //we pass parameters name and message to child component UserMsg
+          <List.Item key={index}>
+            <UserMsg
+              atUser={props.atUser}
+              user={message.user}
+              message={message.message}
+              date={message.date}
+              showDate={props.showDate}
+            />
+          </List.Item> //we pass parameters name and message to child component UserMsg
         );
       })}
-         
+
       <div id='bottom'></div>
-    </List>
+      </List>
   )
 }
 

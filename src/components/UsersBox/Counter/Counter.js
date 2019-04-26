@@ -7,7 +7,7 @@ function Counter(props) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    Client.receivedNewConnection((data) => setUsers(data));
+    Client.receivedNewConnection((data) => setUsers(data.users));
     Client.receiveDisconnection((data) => setUsers(data.users));
   }, []); // = componentDidMount
 
