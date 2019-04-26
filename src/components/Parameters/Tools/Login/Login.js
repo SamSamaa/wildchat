@@ -62,7 +62,7 @@ function Login(props) {
           : <Icon className='iconHover' onClick={show} name='sign-in' size='big' />}
       </div>
       <div className="modalConnection">
-        <Modal size='tiny' dimmer={dimmer} open={open} className='modalMenu'>
+        <Modal size='tiny' dimmer={dimmer} open={open} className='loginMenu'>
           <Modal.Content>
             <p className="welcome">Bienvenue sur Wild Chat !</p>
             <p className="infoConnection">Pour participer à la discussion,<br/>connecte-toi avec ton compte Google. </p>

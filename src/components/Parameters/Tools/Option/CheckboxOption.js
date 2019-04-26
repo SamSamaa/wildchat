@@ -11,7 +11,7 @@ function CheckboxOption(props) {
         <List.Content>
           <List.Header>Heure des messages</List.Header>
           <List.Description>
-            <Checkbox className='checkbox' toggle onClick={props.toggleDate} checked={props.showDate} />
+            <Checkbox toggle onClick={props.toggleDate} checked={props.showDate} />
           </List.Description>
         </List.Content>
       </List.Item>
