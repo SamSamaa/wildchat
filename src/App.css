@@ -16,25 +16,25 @@
 }
 
 .red {
-  --main-color:rgb(185, 57, 55);
+  --main-color:#b93937;
   --bg-color: #e7e7e7;
   --text-color: #ffffff;
 }
 
 .grey {
-  --main-color: rgb(117, 117, 117);
+  --main-color: #757575;
   --bg-color: #e7e7e7;
   --text-color: #ffffff;
 }
 
 .green {
-  --main-color: rgb(103, 148, 91);
+  --main-color: #67945b;
   --bg-color: rgb(228, 228, 228);
   --text-color: #f0f0f0;
 }
 
 .night {
-  --main-color: rgb(51, 51, 51);
+  --main-color: #333333;
   --bg-color: #6e6d6d;
   --text-color: #ffffff;
 }

@@ -29,7 +29,7 @@ function App() {
     <div className={'App' + ' ' + color}>
       <div className='chat'>
         <Feed showDate={date} connected={connected}/>
-        <InputMsg connected={connected}/>
+        <InputMsg connected={connected} colorBtn={color}/>
       </div>
       <div className={'infos' + (active ? ' active' : ' inactive')} >
         <button className='toggle' onClick={toggleUsers}>

@@ -44,7 +44,7 @@ function Feed(props) {
       </List.Item>
       {messages.map((message, index) => {
         return (
-          <List.Item key={index}><UserMsg user={message.profile} message={message.message} date={message.date} showDate={props.showDate} /></List.Item> //we pass parameters name and message to child component UserMsg
+          <List.Item className='bulleMsg' key={index}><UserMsg user={message.profile} message={message.message} date={message.date} showDate={props.showDate} /></List.Item> //we pass parameters name and message to child component UserMsg
         );
       })}
          
