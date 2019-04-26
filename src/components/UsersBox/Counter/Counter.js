@@ -11,9 +11,11 @@ function Counter(props) {
     Client.receiveDisconnection((data) => setUsers(data.users));
   }, []); // = componentDidMount
 
-return (
+  return (
     <List className='Counter'>
-      Users Online : {props.connected ? users.length : ''}
+      <div>
+        Users Online : {props.connected ? users.length : ''}
+      </div>
     </List>
   )
 }
