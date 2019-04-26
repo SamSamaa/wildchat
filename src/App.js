@@ -36,7 +36,7 @@ function App() {
     <div className={'App' + ' ' + color}>
       <div className='chat'>
         <Feed showDate={date} connected={connected} atUser={atUser}/>
-        <InputMsg connected={connected} selectUser={selectedUser}/>
+        <InputMsg connected={connected} colorBtn={color} selectUser={selectedUser}/>
       </div>
       <div className={'infos' + (active ? ' active' : ' inactive')} >
         <button className='toggle' onClick={toggleUsers}>

@@ -48,6 +48,7 @@ const InputMsg = (props) => {
     <div>
       {connected ?     <Form className='InputMsg' onSubmit={() => sendMessage()}>
       <Form.Input
+        className={props.colorBtn}
         action='Send'
         placeholder='Type your message...'
         value={value}

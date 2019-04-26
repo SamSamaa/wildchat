@@ -22,7 +22,7 @@ function CheckboxOption(props) {
           <List.Description>
           <Icon className="redIcon" name="stop" size='large'  title="Red" onClick={props.clickColorRed} />
           <Icon className="greenIcon" name="stop" size='large' title="Green" onClick={props.clickColorGreen} />
-          <Icon className="violetIcon" name="stop" size='large' title="Violet" onClick={props.clickColorViolet} />
+          <Icon className="violetIcon" name="stop" size='large' title="Waycocool" onClick={props.clickColorViolet} />
           <Icon className="greyIcon" name="stop" size='large' title="Grey" onClick={props.clickColorGrey} />
           <Icon className="blueIcon" name="stop" size='large' title="Blue" onClick={props.clickColorBlue} />
           <Icon className="nightIcon" name="moon" size='large' title="Night Mode" onClick={props.clickColorNight} />

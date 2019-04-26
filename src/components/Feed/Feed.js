@@ -44,7 +44,7 @@ console.log(messages)
       </List.Item>
       {messages.map((message, index) => {
         return (
-          <List.Item key={index}>
+          <List.Item key={index} className='bulleMsg'>
             <UserMsg
               atUser={props.atUser}
               user={message.user}
