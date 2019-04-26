@@ -34,7 +34,6 @@ const InputMsg = (props) => {
     setValue('');
   }
 
-
   useEffect(() => {
     setSelectedUser(props.selectUser);
     console.log(selectedUser)
@@ -43,6 +42,10 @@ const InputMsg = (props) => {
       setPrivateMessage(true);
     }
   }, [props.selectUser])
+
+  const [systMsg, setSystMsg] = useState({});
+  
+  Client.receiveSystMsg((data => setSystMsg(data)));
 
   return (
     <div>
@@ -66,9 +69,10 @@ const InputMsg = (props) => {
         />
       </Form>
       }
+      <div>
+        <div id="SystemeMessage"> {systMsg.user ? systMsg.user.name : null} {systMsg.statut ===0? " is disconnected" : null} {systMsg.statut ===1? " is connected" : null} </div>
+      </div>
     </div>
-
   )
 }
-
 export default InputMsg;

@@ -34,3 +34,11 @@
   background-color: #333333 !important;
   color: white !important;
 }
+
+#SystemeMessage {
+  font-style:italic;
+  color:grey;
+  margin-right:25px;
+  margin-top:10px;
+  text-align: right;
+}

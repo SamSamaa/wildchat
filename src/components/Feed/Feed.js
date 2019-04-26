@@ -39,9 +39,6 @@ console.log(messages)
 
   return (
     <List className="Feed">
-      <List.Item>
-        <div id="SystemeMessage"> {systMsg.user ? systMsg.user.name : null} {systMsg.statut ===0? " is disconnected" : null} {systMsg.statut ===1? " is connected" : null} </div>
-      </List.Item>
       {messages.map((message, index) => {
         return (
           <List.Item key={index} className='bulleMsg'>
