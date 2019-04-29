@@ -27,6 +27,8 @@ function Info() {
           <Modal.Description>
             <p>Pour envoyer un message privé, vous pouvez cliquer sur le nom de la personne concernée !</p>
             <hr />
+            <p>Ce chat utilise <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">Markdown</a>.</p>
+            <hr />
             <p>Application faite par:</p>
             <ul>
               <li><a href="https://github.com/AureliaRoumesy" target="_blank"><Icon name="github" /> - Aurélia Roumesy</a></li>
