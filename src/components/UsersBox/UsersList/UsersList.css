@@ -2,6 +2,6 @@
   grid-area: 'usersList';
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   overflow-x: hidden;
 }
