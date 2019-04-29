@@ -10,13 +10,13 @@ function Counter() {
   console.log(connected + 'context counter')
 
   useEffect(() => {
-    Client.receivedNewConnection((data) => setUsers(data));
+    Client.receivedNewConnection((data) => setUsers(data.users));
     Client.receiveDisconnection((data) => setUsers(data.users));
-  }, []); // = componentDidMount
+  }, []) // = componentDidMount
 
-return (
+  return (
     <List className='Counter'>
-      Users Online : {connected ? users.length : ''}
+      {connected ? `Users Online :  ${users.length}` : ''}
     </List>
   )
 }

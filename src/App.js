@@ -15,6 +15,7 @@ function App() {
   const [date, setDate] = useState(false);
   const [color, setColor] = useState("");
   const [connected, setConnected] = useState(false);
+  const [selectedUser, setSelectedUser] = useState('');
 
   const toggleDate = () => setDate(!date);
   const clickColorBlue = () => setColor("blue");
@@ -23,23 +24,26 @@ function App() {
   const clickColorViolet = () => setColor("");
   const clickColorGrey = () => setColor("grey");
   const clickColorNight = () => setColor("night");
-
-  const isConnected = (connected) => {setConnected(connected)}
   const toggleUsers = () => toggleActive(!active);
+  const atUser = (user, id) => {
+    setSelectedUser({user, id});
+    console.log(selectedUser + 'app')
+  }
+  const isConnected = (connected) => setConnected(connected);
   
   return (
     <ConnectedCtx.Provider value={[connected, setConnected]}>
     <div className={'App' + ' ' + color}>
       <div className='chat'>
-        <Feed showDate={date} connected={connected}/>
-        <InputMsg connected={connected}/>
+        <Feed showDate={date} connected={connected} atUser={atUser}/>
+        <InputMsg connected={connected} colorBtn={color} selectUser={selectedUser}/>
       </div>
       <div className={'infos' + (active ? ' active' : ' inactive')} >
         <button className='toggle' onClick={toggleUsers}>
           <Icon name={active ? 'chevron circle right' : 'chevron circle left'} />
         </button>
         <Logo />
-        <UsersBox />
+        <UsersBox atUser={atUser}/>
         <Parameters
           toggleDate={toggleDate}
           showDate={date}

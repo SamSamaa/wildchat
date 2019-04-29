@@ -7,19 +7,24 @@ import './UsersList.css';
 function UsersList(props) {
 
   const [users, setUsers] = useState([]);
+  const [user, setUser] = useState('');
 
   useEffect(() => {
-    Client.receivedNewConnection((data) => setUsers(data));
+    Client.receivedNewConnection((data) => {setUsers(data.users); setUser(data.user)});
     Client.receiveDisconnection((data) => setUsers(data.users));
-  }, []); // = componentDidMount
+  }, []) // = componentDidMount
 
   return (
     <List className='UsersList'>
       {props.connected ?
         users.map((user, index) => {
-          return <List.Item key={index} ><User user={user} /></List.Item>
+          return <List.Item key={index} >
+            <User
+              atUser={props.atUser}
+              user={user}/>
+          </List.Item>
         })
-      : null }
+        : null}
     </List>
   )
 }

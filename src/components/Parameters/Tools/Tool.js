@@ -11,17 +11,16 @@ function Tool(props) {
   const show = () => {
     setOpen(true);
     setDimmer('blurring');
-  };
+  }
 
   const close = () => {
     setOpen(false);
     setDimmer(true);
-  };
+  }
 
   return (
     <div>
       <Icon className='iconHover' onClick={show} name='cog' size='big' />
-
       <Modal size='tiny' dimmer={dimmer} open={open} onClose={close} closeIcon className='modalMenu'>
         <Modal.Header>Options</Modal.Header>
         <Modal.Description>
