@@ -9,7 +9,7 @@ function Counter(props) {
   useEffect(() => {
     Client.receivedNewConnection((data) => setUsers(data.users));
     Client.receiveDisconnection((data) => setUsers(data.users));
-  }, []); // = componentDidMount
+  }, []) // = componentDidMount
 
   return (
     <List className='Counter'>

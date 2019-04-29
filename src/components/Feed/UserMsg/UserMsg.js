@@ -19,7 +19,7 @@ function UserMsg(props) {
         />
       </div>
     </Message>
-  );
+  )
 }
 
 export default UserMsg;

@@ -12,7 +12,7 @@ function UsersList(props) {
   useEffect(() => {
     Client.receivedNewConnection((data) => {setUsers(data.users); setUser(data.user)});
     Client.receiveDisconnection((data) => setUsers(data.users));
-  }, []); // = componentDidMount
+  }, []) // = componentDidMount
 
   return (
     <List className='UsersList'>

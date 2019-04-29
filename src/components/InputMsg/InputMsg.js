@@ -11,6 +11,7 @@ const InputMsg = (props) => {
   const [value, setValue] = useState('');
   const [selectedUser, setSelectedUser] = useState('');
   const [privateMessage, setPrivateMessage] = useState(false);
+  const [systMsg, setSystMsg] = useState({});
 
   useEffect(() => {
     setConnected(props.connected)
@@ -25,14 +26,13 @@ const InputMsg = (props) => {
   });
 
   //method to emit message to server via client and to delete message from the input message box
-
   const sendMessage = () => {
     Client.sendMessageEmit(message, user, selectedUser.id, privateMessage);
     setMessage('');
     setSelectedUser('');
     setPrivateMessage(false);
     setValue('');
-  }
+  };
 
   useEffect(() => {
     setSelectedUser(props.selectUser);
@@ -42,14 +42,12 @@ const InputMsg = (props) => {
       setPrivateMessage(true);
     }
   }, [props.selectUser])
-
-  const [systMsg, setSystMsg] = useState({});
   
   Client.receiveSystMsg((data => setSystMsg(data)));
 
   return (
     <div>
-      {connected ?     <Form className='InputMsg' onSubmit={() => sendMessage()}>
+      {connected ? <Form className='InputMsg' onSubmit={() => sendMessage()}>
       <Form.Input
         className={props.colorBtn}
         action='Send'
@@ -75,4 +73,5 @@ const InputMsg = (props) => {
     </div>
   )
 }
+
 export default InputMsg;

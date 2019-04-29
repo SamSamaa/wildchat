@@ -22,15 +22,12 @@ function App() {
   const clickColorViolet = () => setColor("");
   const clickColorGrey = () => setColor("grey");
   const clickColorNight = () => setColor("night");
-
   const toggleUsers = () => toggleActive(!active);
-
   const atUser = (user, id) => {
     setSelectedUser({user, id});
     console.log(selectedUser + 'app')
   }
-
-  const isConnected = (connected) => {setConnected(connected)}
+  const isConnected = (connected) => setConnected(connected);
   
   return (
     <div className={'App' + ' ' + color}>
@@ -57,7 +54,7 @@ function App() {
         />
       </div>
     </div>
-  );
+  )
 }
 
 export default App;

@@ -10,12 +10,12 @@ function Info() {
   const show = () => {
     setOpen(true);
     setDimmer('blurring');
-  };
+  }
 
   const close = () => {
     setOpen(false);
     setDimmer(true);
-  };
+  }
 
   return (
     <div>
