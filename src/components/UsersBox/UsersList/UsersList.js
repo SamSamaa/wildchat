@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import User from '../../User/User';
+import { ConnectedCtx } from '../../../App';
 import { List } from 'semantic-ui-react';
 import { Client } from "../../../Client";
 import './UsersList.css';
@@ -8,6 +9,7 @@ function UsersList(props) {
 
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState('');
+  const [connected, setConnected] = useContext(ConnectedCtx);
 
   useEffect(() => {
     Client.receivedNewConnection((data) => {setUsers(data.users); setUser(data.user)});
@@ -16,11 +18,10 @@ function UsersList(props) {
 
   return (
     <List className='UsersList'>
-      {props.connected ?
+      {connected ?
         users.map((user, index) => {
           return <List.Item key={index} >
             <User
-              atUser={props.atUser}
               user={user}/>
           </List.Item>
         })

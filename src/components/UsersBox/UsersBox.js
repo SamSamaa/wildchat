@@ -9,7 +9,7 @@ function UsersBox(props) {
     <div className='UsersBox'>
       <MyProfile />
       <Counter />
-      <UsersList connected={props.connected} atUser={props.atUser}/>
+      <UsersList />
     </div>
   )
 }

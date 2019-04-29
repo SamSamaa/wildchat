@@ -43,10 +43,6 @@ function Login(props) {
   }
 
   useEffect(() => {
-    props.isConnected(connected);
-  }, [connected])
-
-  useEffect(() => {
     show();
   }, [])
 
