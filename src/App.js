@@ -1,4 +1,4 @@
-import React, { useState, createContext  } from 'react';
+import React, { useState, createContext } from 'react';
 import Feed from './components/Feed/Feed';
 import InputMsg from './components/InputMsg/InputMsg';
 import Logo from './components/Logo/Logo';
@@ -24,26 +24,26 @@ function App() {
 
   return (
     <ConnectedCtx.Provider value={[connected, setConnected]}>
-    <ShowDateCtx.Provider value={[showDate, setShowDate]}>
-    <SelectedUserCtx.Provider value={[selectedUser, setSelectedUser]}>
-    <SelectedColorCtx.Provider value={[selectedColor, setSelectedColor]}>
-    <div className={'App' + ' ' + selectedColor}>
-      <div className='chat'>
-        <Feed />
-        <InputMsg />
-      </div>
-      <div className={'infos' + (active ? ' active' : ' inactive')} >
-        <button className='toggle' onClick={toggleUsers}>
-          <Icon name={active ? 'chevron circle right' : 'chevron circle left'} />
-        </button>
-        <Logo />
-        <UsersBox />
-        <Parameters />
-      </div>
-    </div>
-    </SelectedColorCtx.Provider>
-    </SelectedUserCtx.Provider>
-    </ShowDateCtx.Provider>
+      <ShowDateCtx.Provider value={[showDate, setShowDate]}>
+        <SelectedUserCtx.Provider value={[selectedUser, setSelectedUser]}>
+          <SelectedColorCtx.Provider value={[selectedColor, setSelectedColor]}>
+            <div className={'App' + ' ' + selectedColor}>
+              <div className='chat'>
+                <Feed />
+                <InputMsg />
+              </div>
+              <div className={'infos' + (active ? ' active' : ' inactive')} >
+                <button className='toggle' onClick={toggleUsers}>
+                  <Icon name={active ? 'chevron circle right' : 'chevron circle left'} />
+                </button>
+                <Logo />
+                <UsersBox />
+                <Parameters />
+              </div>
+            </div>
+          </SelectedColorCtx.Provider>
+        </SelectedUserCtx.Provider>
+      </ShowDateCtx.Provider>
     </ConnectedCtx.Provider>
   );
 }
