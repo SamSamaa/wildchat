@@ -21,6 +21,10 @@
   margin-top:10%;
 }
 
+.markdown {
+  text-align: center !important;
+}
+
 .googleConnection{
   text-align: center !important;
 }

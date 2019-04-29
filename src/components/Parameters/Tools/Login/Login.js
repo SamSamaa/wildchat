@@ -63,6 +63,7 @@ function Login(props) {
           <Modal.Content>
             <p className="welcome">Bienvenue sur Wild Chat !</p>
             <p className="infoConnection">Pour participer à la discussion,<br/>connecte-toi avec ton compte Google. </p>
+            <p className="markdown">Ce chat utilise <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">Markdown</a>.</p>
             <div className="googleConnection">
             <GoogleLogin
               clientId="543165394107-pun2i8uuha0cmat6n5bq8qtc87njp5vu.apps.googleusercontent.com"
