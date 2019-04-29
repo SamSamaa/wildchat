@@ -18,10 +18,15 @@ function Login(props) {
   };
 
   const responseGoogle = (response) => {
+    let userName = '';
+    
+    response.profileObj.familyName ? userName = response.profileObj.givenName + ' ' + response.profileObj.familyName : userName = response.profileObj.givenName;
+
     newGoogleUser = {
-      username: response.profileObj.givenName + ' ' + response.profileObj.familyName,
+      username: userName,
       profilePic: response.profileObj.imageUrl
     };
+
     if (!localStorage.getItem('id_token') || localStorage.getItem('id_token') !== response.tokenId) {
       localStorage.setItem('id_token', response.tokenId);
       Client.sendGoogleUser(newGoogleUser);
@@ -30,7 +35,7 @@ function Login(props) {
       setDimmer(true);
     } else {
       console.log('same user');
-    };
+    }
   }
 
   Client.receivedNewUser(data => setUser(data.user));
