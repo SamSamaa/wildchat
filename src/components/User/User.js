@@ -10,7 +10,7 @@ function User(props) {
   return (
     // we receive props.name from UserMsg
     <div className="row">
-      <img src={props.user.profilePic}  alt='' />
+      <img className="image" src={props.user.profilePic}  alt='' />
       <strong onClick={handleOnClick} >{props.user.name}</strong>
     </div>
   )
