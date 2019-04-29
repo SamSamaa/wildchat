@@ -1,0 +1,11 @@
+.contributors p{
+  padding-top:5px;
+  margin-left: 15px;
+  font-style: italic;
+}
+
+.contributors ul{
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 15px;
+}

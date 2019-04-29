@@ -1,6 +1,10 @@
 import { socket } from './Socket';
 
 export const Client = {
+    sendGoogleUser(newGoogleUser){
+    socket.emit('SEND_NEW_GOOGLE_USER', newGoogleUser);
+  },
+
   //method to listen new connection form server, data = id of my connection and users array (not working well)
   //method used in MyProfile to set the user id and in InputMsg to connect the right user to the right message in an
   // object via sendMessageEmit method below
@@ -32,13 +36,21 @@ export const Client = {
     socket.off('RECEIVE_MESSAGE', handleMessage);
   },
   //method to emit message to server, used in feed component 
-  sendMessageEmit(message, name) {
+
+  sendDisconnection(user){
+    socket.emit('SEND_DISCONNECTION', user);
+  },
+
+  sendMessageEmit(message, user, idTo, privateMessage) {
     socket.emit('SEND_MESSAGE', {
       message: message,
-      name: name
+      user: {
+        name: user.name,
+        idUser: user.idUser,
+        profilePic: user.profilePic
+      },
+      idTo: idTo,
+      privateMessage: privateMessage
     });
   }
 }
-
-
-

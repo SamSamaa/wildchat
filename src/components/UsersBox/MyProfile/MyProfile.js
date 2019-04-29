@@ -4,13 +4,19 @@ import './MyProfile.css';
 
 function MyProfile() {
 
-  const [profile, setProfile] = useState('');
+  const [profile, setProfile] = useState({});
 
-  Client.receivedNewUser(data => setProfile(data.user.name));
+  Client.receivedNewUser(data => setProfile({ name: data.user.name, profilePic: data.user.profilePic, id: data.user.idUser }));
+  Client.receiveDisconnection(data => {
+    if (profile.id === data.user.idUser) {
+      setProfile({})
+    }
+  });
 
   return (
     <div className='MyProfile'>
-      <h2>{profile}</h2>
+      <img src={profile.profilePic} alt=''/>
+      <h2>{profile.name}</h2>
     </div>
   )
 }
