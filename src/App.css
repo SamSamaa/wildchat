@@ -39,9 +39,13 @@
   --text-color: #ffffff;
 }
 
-::-webkit-scrollbar { 
-  display: none; 
-}
+::-webkit-scrollbar-track {
+  background-color: transparent !important;
+} /* the new scrollbar will have a flat appearance with the set background color */
+
+::-webkit-scrollbar-thumb {
+  background-color: #dddddd !important; 
+} /* this will style the thumb, ignoring the track */
 
 .chat {
   z-index: 1;
@@ -107,7 +111,7 @@
 
 @media screen and (min-width: 600px){
   .chat {
-    width: 80vw;
+    width: 79vw;
   }
 
   .infos {
