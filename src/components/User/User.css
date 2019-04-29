@@ -1,7 +1,7 @@
 .image {
   width: 3vh;
   margin-right: 1vh;
-  border-radius: 50%;
+  border-radius: 100% !important  ;
 }
 
 .row{
