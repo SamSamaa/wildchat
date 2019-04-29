@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Client } from "../../Client";
+import { ConnectedCtx, SelectedUserCtx, SelectedColorCtx } from '../../App';
 import { Form } from 'semantic-ui-react';
 import './InputMsg.css';
 
-const InputMsg = (props) => {
+const InputMsg = () => {
 
   const [message, setMessage] = useState('');
   const [user, setUser] = useState({});
-  const [connected, setConnected] = useState(false);
+  const [connected, setConnected] = useContext(ConnectedCtx);
+  const [selectedColor, setSelectedColor] = useContext(SelectedColorCtx)
   const [value, setValue] = useState('');
-  const [selectedUser, setSelectedUser] = useState('');
+  const [selectedUser, setSelectedUser] = useContext(SelectedUserCtx);
   const [privateMessage, setPrivateMessage] = useState(false);
   const [systMsg, setSystMsg] = useState({});
-
-  useEffect(() => {
-    setConnected(props.connected)
-  }, [props])
 
   Client.receivedNewUser((data) => {
     setUser({
@@ -35,13 +33,11 @@ const InputMsg = (props) => {
   };
 
   useEffect(() => {
-    setSelectedUser(props.selectUser);
-    console.log(selectedUser)
     if (selectedUser !== '') {
       setValue(`@${selectedUser.user} `);
       setPrivateMessage(true);
     }
-  }, [props.selectUser])
+  }, [selectedUser])
   
   Client.receiveSystMsg((data => setSystMsg(data)));
 
@@ -49,7 +45,7 @@ const InputMsg = (props) => {
     <div>
       {connected ? <Form className='InputMsg' onSubmit={() => sendMessage()}>
       <Form.Input
-        className={props.colorBtn}
+        className={selectedColor}
         action='Send'
         placeholder='Type your message...'
         value={value}
@@ -59,6 +55,7 @@ const InputMsg = (props) => {
         :
         <Form className='InputMsg' onSubmit={() => sendMessage()}>
         <Form.Input
+          className={selectedColor}
           disabled
           action='Send'
           placeholder='Type your message...'

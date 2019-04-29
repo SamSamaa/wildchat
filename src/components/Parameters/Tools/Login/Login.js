@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ConnectedCtx } from '../../../../App';
 import GoogleLogin from 'react-google-login';
 import { Icon, Modal } from 'semantic-ui-react';
 import { Client } from '../../../../Client';
@@ -7,7 +8,7 @@ import './Login.css';
 function Login(props) {
   const [open, setOpen] = useState(false);
   const [dimmer, setDimmer] = useState(true);
-  const [connected, setConnected] = useState(false);
+  const [connected, setConnected] = useContext(ConnectedCtx);
   const [user, setUser] = useState('');
   let newGoogleUser = {};
 
@@ -40,10 +41,6 @@ function Login(props) {
     setConnected(false);
     show();
   }
-
-  useEffect(() => {
-      props.isConnected(connected);
-  }, [connected])
 
   useEffect(() => {
     show();

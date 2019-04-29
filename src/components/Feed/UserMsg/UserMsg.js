@@ -5,17 +5,17 @@ import { Message } from 'semantic-ui-react';
 import './UserMsg.css';
 
 //props serve to receive data from parent component
-function UserMsg(props) {
+function UserMsg({message}) {
+
   return (
     // we receive props.name from Feed and "transform" it in name to send to child component User
     // we receive props.message from Feed and "transform" it in message to send to child component Msg
     <Message compact className='msg' >
       <div className='msg'>
-        <User user={props.user} atUser={props.atUser}/>
+        <User user={message.user} />
         <Msg 
-          message={props.message}
-          date={props.date}
-          showDate={props.showDate} 
+          message={message.message}
+          date={message.date}
         />
       </div>
     </Message>

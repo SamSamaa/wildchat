@@ -8,8 +8,8 @@ function UsersBox(props) {
   return (
     <div className='UsersBox'>
       <MyProfile />
-      <Counter connected={props.connected}/>
-      <UsersList connected={props.connected} atUser={props.atUser}/>
+      <Counter />
+      <UsersList />
     </div>
   )
 }

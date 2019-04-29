@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import UserMsg from './UserMsg/UserMsg';
+import { ConnectedCtx } from '../../App';
 import { Client } from "../../Client";
 import { List } from 'semantic-ui-react';
 import './Feed.css';
 
-function Feed(props) {
+function Feed() {
   const [messages, setMessages] = useState([]);
   const [systMsg, setSystMsg] = useState({});
+  const [connected, setConnected] = useContext(ConnectedCtx);
 
-  useEffect(() => {
-    if (props.connected === false){
+  useEffect(() =>{
+    if (connected === false){
       setMessages([]);
     }
-  }, [props])
+  }, [connected])
+  
 
   Client.receivedNewUser(data => {
     setMessages(data.history);
@@ -43,12 +46,8 @@ function Feed(props) {
         return (
           <List.Item key={index} className='bulleMsg'>
             <UserMsg
-              atUser={props.atUser}
-              user={message.user}
-              message={message.message}
-              date={message.date}
-              showDate={props.showDate}
-            />
+              message={message}
+              />
           </List.Item> //we pass parameters name and message to child component UserMsg
         );
       })}
