@@ -16,6 +16,14 @@
   z-index: 10;
 }
 
+.loginMenu{
+  width: 60% !important;
+  margin-left: 5vw !important;
+  bottom: 15%;
+  left: 0;
+  z-index: 10;
+}
+
 .iconHover{
   -webkit-transform: scale(1);
 	transform: scale(1);

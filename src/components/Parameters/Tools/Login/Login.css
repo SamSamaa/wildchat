@@ -1,5 +1,5 @@
 .loginMenu{
-  margin-left: -30% !important;
+  margin-left: -20% !important;
   width: 80% !important;
   height: 70% !important;
 }
@@ -28,7 +28,7 @@
 @media screen and (min-width: 600px){
 
   .loginMenu{
-    margin-left: -82% !important;
+    margin-left: -65% !important;
     margin-right: 30% !important;
     width: 70% !important;
     height: 70% !important;
