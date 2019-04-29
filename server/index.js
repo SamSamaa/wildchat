@@ -39,7 +39,6 @@ io.sockets.on('connection', (socket) => {
 
   //when message arrive from client, server resend the message to all users
   socket.on('SEND_MESSAGE', (data) => {
-    console.log(data);
 
     const message = data;
 

@@ -3,3 +3,7 @@
   padding: 5px !important;
   max-width: calc(100% - 20px);
 }
+
+.private{
+  background-color: rgba(211, 209, 214, 0.966);
+}

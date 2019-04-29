@@ -11,11 +11,10 @@ function UserMsg({message}) {
     // we receive props.name from Feed and "transform" it in name to send to child component User
     // we receive props.message from Feed and "transform" it in message to send to child component Msg
     <Message compact className='msg' >
-      <div className='msg'>
+      <div className='msg' className={message.privateMessage ? 'private' : ''}>
         <User user={message.user} />
         <Msg 
-          message={message.message}
-          date={message.date}
+          message={message}
         />
       </div>
     </Message>

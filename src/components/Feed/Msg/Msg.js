@@ -7,17 +7,17 @@ import './Msg.css';
 
 moment.locale('fr');
 
-function Msg(props) {
+function Msg({message}) {
 
   const [showDate, setShowDate] = useContext(ShowDateCtx);
   
   return (
     <div className='mssgContainer'>
       <div className='mssg'>
-        <ReactMarkdown className='markdown' source={props.message} />
+        <ReactMarkdown className='markdown' source={message.message} />
         {
           showDate ?
-            <span className='date'>{moment(props.date).format('L - LT')}</span> :
+            <span className='date'>{moment(message.date).format('L - LT')}</span> :
             <span></span>
         }
       </div>
