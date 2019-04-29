@@ -9,8 +9,10 @@ io.sockets.on('connection', (socket) => {
   let user = {
     idUser: socket.id,
     name: ''
-  }
-  history = messages
+  };
+
+  history = messages;
+
   while (history.length > 500) {
     history.splice(0, 1);
   }
@@ -20,11 +22,13 @@ io.sockets.on('connection', (socket) => {
       idUser: socket.id,
       name: newGoogleUser.username,
       profilePic: newGoogleUser.profilePic
-    }
+    };
+
     users = [...users, user];
 
     //server send id connection and users array
     socket.emit('NEW_USER', { user, history });
+
     socket.broadcast.emit('SYST_MSG', {
       statut: 1, // connected
       user: user
@@ -35,8 +39,10 @@ io.sockets.on('connection', (socket) => {
 
   //when message arrive from client, server resend the message to all users
   socket.on('SEND_MESSAGE', (data) => {
-    console.log(data)
+    console.log(data);
+
     const message = data;
+
     if (message.privateMessage === true) {
       io.to(data.idTo).emit('RECEIVE_MESSAGE', data);
       io.to(data.user.idUser).emit('RECEIVE_MESSAGE', data);
@@ -53,6 +59,7 @@ io.sockets.on('connection', (socket) => {
     users = users.filter(function (u) {
       return u.idUser !== user.idUser;
     });
+
     socket.broadcast.emit('SYST_MSG', {
       statut: 0, // disconnected
       user: user
@@ -65,10 +72,12 @@ io.sockets.on('connection', (socket) => {
     users = users.filter(function (u) {
       return u.idUser !== user.idUser;
     });
+    
     socket.broadcast.emit('SYST_MSG', {
       statut: 0, // disconnected
       user: user
     });
+    
     io.emit('NEW_DISCONNECT', { users, user });
   });
 });
