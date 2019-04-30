@@ -18,7 +18,7 @@ function App() {
   const [showDate, setShowDate] = useState(false);
   const [selectedUser, setSelectedUser] = useState('');
   const [connected, setConnected] = useState(false);
-  const [selectedColor, setSelectedColor] = useState('')
+  const [selectedColor, setSelectedColor] = useState('');
 
   const toggleUsers = () => toggleActive(!active);
 

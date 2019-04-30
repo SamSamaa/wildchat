@@ -9,11 +9,9 @@
   width: auto;
 }
 
-
 @media screen and (min-width: 600px){
   .Logo img {
     height: 70px;
     width: auto;
   }
-  
 }

@@ -7,7 +7,7 @@ import '../../../../App.css';
 function CheckboxOption() {
 
   const [showDate, setShowDate] = useContext(ShowDateCtx);
-  const [selectedColor, setSelectedColor] = useContext(SelectedColorCtx)
+  const [selectedColor, setSelectedColor] = useContext(SelectedColorCtx);
 
   return (
     <List className='list'>
