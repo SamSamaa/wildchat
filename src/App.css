@@ -1,7 +1,14 @@
-.App {
-  position: relative;
+.appContainer {
   height: 100vh;
   width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+.App {
+  position: relative;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   --main-color:#F76C6F;
   --bg-color: #efedf4;
@@ -51,8 +58,8 @@
   z-index: 1;
   position: absolute;
   top: 0; left: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-rows: 88% 12%;
 }
@@ -63,7 +70,7 @@
   color: var(--text-color);
   position: absolute;
   top: 0; left: 0;
-  height: 100vh;
+  height: 100%;
   display: grid;
   grid-template-rows: 10% 80% 10%;
   transition: all .5s ease-in-out;
@@ -84,11 +91,13 @@
   background-color: transparent;
   border-radius: 100%;
   position: absolute;
-  left: -60px;
+  top: 38%;
+  left: -50px;
   width: 60px;
   height: 60px;
   border: none;
   outline:none;
+  opacity: .4;
 }
 
 .toggle::after {

@@ -27,18 +27,20 @@ function App() {
       <ShowDateCtx.Provider value={[showDate, setShowDate]}>
         <SelectedUserCtx.Provider value={[selectedUser, setSelectedUser]}>
           <SelectedColorCtx.Provider value={[selectedColor, setSelectedColor]}>
-            <div className={'App' + ' ' + selectedColor}>
-              <div className='chat'>
-                <Feed />
-                <InputMsg />
-              </div>
-              <div className={'infos' + (active ? ' active' : ' inactive')} >
-                <button className='toggle' onClick={toggleUsers}>
-                  <Icon name={active ? 'chevron circle right' : 'chevron circle left'} />
-                </button>
-                <Logo />
-                <UsersBox />
-                <Parameters />
+            <div className='appContainer'>
+              <div className={'App' + ' ' + selectedColor}>
+                <div className='chat'>
+                  <Feed />
+                  <InputMsg />
+                </div>
+                <div className={'infos' + (active ? ' active' : ' inactive')} >
+                  <button className='toggle' onClick={toggleUsers}>
+                    <Icon name={active ? 'chevron circle right' : 'chevron circle left'} />
+                  </button>
+                  <Logo />
+                  <UsersBox />
+                  <Parameters />
+                </div>
               </div>
             </div>
           </SelectedColorCtx.Provider>
