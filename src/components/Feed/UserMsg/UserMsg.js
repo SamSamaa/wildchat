@@ -14,8 +14,7 @@ function UserMsg({message}) {
       <div className='msg'>
         <User user={message.user} />
         <Msg 
-          message={message.message}
-          date={message.date}
+          message={message}
         />
       </div>
     </Message>
