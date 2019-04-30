@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ConnectedCtx } from '../../../App';
 import { List } from 'semantic-ui-react';
 import { Client } from "../../../Client";
 
-function Counter(props) {
+function Counter() {
 
   const [users, setUsers] = useState([]);
+  const [connected, setConnected] = useContext(ConnectedCtx);
 
   useEffect(() => {
     Client.receivedNewConnection((data) => setUsers(data.users));
@@ -13,9 +15,7 @@ function Counter(props) {
 
   return (
     <List className='Counter'>
-      <div>
-        Users Online : {props.connected ? users.length : ''}
-      </div>
+      {connected ? `Users Online :  ${users.length}` : ''}
     </List>
   )
 }

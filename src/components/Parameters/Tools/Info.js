@@ -24,15 +24,19 @@ function Info() {
       <Modal dimmer={dimmer} open={open} onClose={close} closeIcon className='modalMenu'>
         <Modal.Header>Informations</Modal.Header>
         <div className="contributors">
-        <Modal.Description>
-        <p>Application faite par:</p>
-          <ul>
-            <li>Aurélia Roumesy</li>
-            <li>Béatrice de Montbeillard</li>
-            <li>Sam Adib Ghiassi</li>
-            <li>Julien Duhem</li>
-          </ul>
-        </Modal.Description>
+          <Modal.Description>
+            <p>Pour envoyer un message privé, vous pouvez cliquer sur le nom de la personne concernée !</p>
+            <hr />
+            <p>Ce chat utilise <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">Markdown</a>.</p>
+            <hr />
+            <p>Application faite par:</p>
+            <ul>
+              <li><a href="https://github.com/AureliaRoumesy" target="_blank"><Icon name="github" /> - Aurélia Roumesy</a></li>
+              <li><a href="https://github.com/Bmontbe" target="_blank"><Icon name="github" /> - Béatrice de Montbeillard</a></li>
+              <li><a href="https://github.com/samsamaa" target="_blank"><Icon name="github" /> - Sam Adib Ghiassi</a></li>
+              <li><a href="https://github.com/dhmjulien" target="_blank"><Icon name="github" /> - Julien Duhem</a></li>
+            </ul>
+          </Modal.Description>
         </div>
       </Modal>
     </div>

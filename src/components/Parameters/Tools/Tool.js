@@ -3,7 +3,7 @@ import { Icon, Modal } from 'semantic-ui-react';
 import CheckboxOption from './Option/CheckboxOption';
 import '../Parameters.css';
 
-function Tool(props) {
+function Tool() {
   
   const [open, setOpen] = useState(false);
   const [dimmer, setDimmer] = useState(true);
@@ -24,16 +24,7 @@ function Tool(props) {
       <Modal size='tiny' dimmer={dimmer} open={open} onClose={close} closeIcon className='modalMenu'>
         <Modal.Header>Options</Modal.Header>
         <Modal.Description>
-          <CheckboxOption 
-            toggleDate={props.toggleDate} 
-            showDate={props.showDate}
-            clickColorBlue={props.clickColorBlue}
-            clickColorGreen={props.clickColorGreen}
-            clickColorViolet={props.clickColorViolet}
-            clickColorGrey={props.clickColorGrey}
-            clickColorRed={props.clickColorRed}
-            clickColorNight={props.clickColorNight}
-            />
+          <CheckboxOption />
         </Modal.Description>
       </Modal>
     </div>

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ConnectedCtx } from '../../../../App';
 import GoogleLogin from 'react-google-login';
 import { Icon, Modal } from 'semantic-ui-react';
 import { Client } from '../../../../Client';
@@ -7,7 +8,7 @@ import './Login.css';
 function Login(props) {
   const [open, setOpen] = useState(false);
   const [dimmer, setDimmer] = useState(true);
-  const [connected, setConnected] = useState(false);
+  const [connected, setConnected] = useContext(ConnectedCtx);
   const [user, setUser] = useState('');
   let newGoogleUser = {};
 
@@ -17,10 +18,15 @@ function Login(props) {
   };
 
   const responseGoogle = (response) => {
+    let userName = '';
+    
+    response.profileObj.familyName ? userName = response.profileObj.givenName + ' ' + response.profileObj.familyName : userName = response.profileObj.givenName;
+
     newGoogleUser = {
-      username: response.profileObj.givenName + ' ' + response.profileObj.familyName,
+      username: userName,
       profilePic: response.profileObj.imageUrl
     };
+
     if (!localStorage.getItem('id_token') || localStorage.getItem('id_token') !== response.tokenId) {
       localStorage.setItem('id_token', response.tokenId);
       Client.sendGoogleUser(newGoogleUser);
@@ -29,7 +35,7 @@ function Login(props) {
       setDimmer(true);
     } else {
       console.log('same user');
-    };
+    }
   }
 
   Client.receivedNewUser(data => setUser(data.user));
@@ -40,10 +46,6 @@ function Login(props) {
     setConnected(false);
     show();
   }
-
-  useEffect(() => {
-      props.isConnected(connected);
-  }, [connected])
 
   useEffect(() => {
     show();
@@ -61,6 +63,7 @@ function Login(props) {
           <Modal.Content>
             <p className="welcome">Bienvenue sur Wild Chat !</p>
             <p className="infoConnection">Pour participer à la discussion,<br/>connecte-toi avec ton compte Google. </p>
+            <p className="markdown-link">Ce chat utilise <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">Markdown</a>.</p>
             <div className="googleConnection">
             <GoogleLogin
               clientId="543165394107-pun2i8uuha0cmat6n5bq8qtc87njp5vu.apps.googleusercontent.com"

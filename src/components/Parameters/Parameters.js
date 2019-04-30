@@ -4,21 +4,13 @@ import Tool from './Tools/Tool';
 import Info from './Tools/Info';
 import Login from './Tools/Login/Login';
 
-function Parameters(props) {
+function Parameters() {
   
   return (
     <div className='Parameters' >
-      <Tool 
-        toggleDate={props.toggleDate}
-        showDate={props.showDate}
-        clickColorBlue={props.clickColorBlue}
-        clickColorGreen={props.clickColorGreen}
-        clickColorViolet={props.clickColorViolet}
-        clickColorGrey={props.clickColorGrey}
-        clickColorRed={props.clickColorRed}
-        clickColorNight={props.clickColorNight} />
+      <Tool />
       <Info />
-      <Login isConnected={props.isConnected} />
+      <Login />
     </div>
   )
 }
